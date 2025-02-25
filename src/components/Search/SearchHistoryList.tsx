@@ -1,4 +1,5 @@
 import SearchHistoryItem from '@/components/Search/components/SearchHistoryItem';
+import { useTranslations } from 'next-intl';
 
 interface SearchHistoryListProps {
   show: boolean;
@@ -13,21 +14,24 @@ interface SearchHistory {
   timestamp: string;
 }
 
-
 export function SearchHistoryList({
-                                    show,
-                                    history,
-                                    onItemClick,
-                                    onItemDelete
-                                  }: SearchHistoryListProps) {
+  show,
+  history,
+  onItemClick,
+  onItemDelete,
+}: SearchHistoryListProps) {
+
+  const t = useTranslations('SearchBar');
   if (!show || history.length === 0) return null;
 
   return (
     <div className="absolute w-full mt-2 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-10 overflow-hidden custom-scrollbar">
       <div className="p-2 border-b border-gray-700">
-        <span className="text-sm text-gray-400">最近搜索</span>
+        <span className="text-sm text-gray-400">
+          {t('latestResearched')}
+        </span>
       </div>
-      {history.map((item) => (
+      {history.map(item => (
         <SearchHistoryItem
           key={`${item.id}-${item.timestamp}`}
           item={item}

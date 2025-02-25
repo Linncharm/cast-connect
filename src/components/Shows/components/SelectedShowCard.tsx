@@ -3,8 +3,8 @@ import React from 'react';
 import TMDBService from '@/services/tmdb';
 
 interface SelectedShowCard {
-  show: TVShow,
-  onRemove:() => void
+  show: TVShow;
+  onRemove: () => void;
 }
 
 interface TVShow {
@@ -15,16 +15,11 @@ interface TVShow {
   overview: string;
 }
 
-
-const SelectedShowCard: React.FC<SelectedShowCard> = (props) => {
-
+const SelectedShowCard: React.FC<SelectedShowCard> = props => {
   const { show, onRemove } = props;
 
   return (
-    <div
-      key={show.id}
-      className="bg-gray-700 rounded-lg p-3 relative group"
-    >
+    <div key={show.id} className="bg-gray-700 rounded-lg p-3 relative group">
       <button
         onClick={onRemove}
         className="absolute top-2 right-2 w-6 h-6 rounded-full bg-red-500 text-white opacity-0 group-hover:opacity-100 transition-opacity"
@@ -34,7 +29,7 @@ const SelectedShowCard: React.FC<SelectedShowCard> = (props) => {
       </button>
       <div className="flex items-center gap-3">
         <img
-          src={TMDBService.getImageUrl(show.poster_path,'w92')}
+          src={TMDBService.getImageUrl(show.poster_path, 'w92')}
           alt={`${show.name}的海报`}
           className="w-12 h-16 rounded object-cover flex-shrink-0"
           loading="lazy"
@@ -47,7 +42,7 @@ const SelectedShowCard: React.FC<SelectedShowCard> = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SelectedShowCard
+export default SelectedShowCard;

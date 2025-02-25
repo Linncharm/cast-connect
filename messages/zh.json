@@ -1,0 +1,68 @@
+{
+  "common": {
+    "language": {
+      "switch": "切换语言",
+      "en": "英文",
+      "zh": "中文"
+    },
+    "locale": "{locale, select, en {English} zh {中文} other {Unknown}}",
+    "datetime": {
+      "currentYear": "{year}年"
+    }
+  },
+  "nav": {
+    "title": "剧集关联查询",
+    "home": "首页",
+    "about": "关于",
+    "language": "语言",
+    "contact": "联系我们"
+  },
+  "meta": {
+    "title": "剧集关联查询系统",
+    "description": "发现不同电视剧之间的演员联系"
+  },
+  "header": {
+    "title": "剧集关联查询",
+    "description": "发现不同电视剧之间的演员联系"
+  },
+  "footer": {
+    "about": {
+      "title": "关于我们",
+      "description": "剧集关联查询系统帮助您发现不同电视剧之间的演员联系。"
+    },
+    "quickLinks": {
+      "title": "快速链接",
+      "home": "首页",
+      "about": "关于",
+      "contact": "联系我们"
+    },
+    "contact": {
+      "title": "联系方式",
+      "email": "邮箱：contact@example.com",
+      "github": "GitHub: @Linncharm"
+    }
+  },
+  "SearchBar": {
+    "title": "搜索",
+    "placeholder": "搜索电视剧",
+    "button": "搜索",
+    "latestResearched": "最近搜索",
+    "searching": "搜索中..."
+  },
+  "ModeSelect": {
+    "title": "选择模式",
+    "fuzzy": "模糊查询",
+    "strict": "精确查询"
+  },
+  "Analysis": {
+    "analyze": "查询关系"
+  },
+  "SelectedShowsList": {
+    "noSelectedShows": "请搜索并选择剧集以开始分析"
+  },
+  "CommonCastResults": {
+    "title": "共同演员",
+    "showInCast": "共出演了{count}部剧集",
+    "showInEpisode": "出演 {count} 集"
+  }
+}

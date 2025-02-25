@@ -1,4 +1,5 @@
 import SelectedShowCard from '@/components/Shows/components/SelectedShowCard';
+import { useTranslations } from 'next-intl';
 
 interface TVShow {
   id: number;
@@ -13,11 +14,17 @@ interface SelectedShowsListProps {
   onRemoveShow: (id: number) => void;
 }
 
-export function SelectedShowsList({ shows, onRemoveShow }: SelectedShowsListProps) {
+export function SelectedShowsList({
+  shows,
+  onRemoveShow,
+}: SelectedShowsListProps) {
+
+  const t = useTranslations('SelectedShowsList');
+
   if (shows.length === 0) {
     return (
       <div className="text-center text-gray-400 py-8">
-        请搜索并选择剧集以开始分析
+        {t('noSelectedShows')}
       </div>
     );
   }

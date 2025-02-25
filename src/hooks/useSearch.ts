@@ -47,12 +47,12 @@ export function useSearch() {
   const handleOnBlur = () => {
     setTimeout(() => {
       setShowHistory(false);
-    }, 200)
-  }
+    }, 200);
+  };
 
   const handleOnFocus = () => {
     setShowHistory(true);
-  }
+  };
 
   const handleSearch = (value: string) => {
     setSearchTerm(value);
@@ -60,20 +60,17 @@ export function useSearch() {
 
   const handleHistoryItemClick = (value: string) => {
     handleSearch(value);
-  }
+  };
 
   const handleHistoryItemDelete = (
     // e:MouseEvent,
-    itemId:number
+    itemId: number,
   ) => {
     // e.stopPropagation();
-    const newHistory = searchHistory.filter(
-      h => h.id !== itemId,
-    );
+    const newHistory = searchHistory.filter(h => h.id !== itemId);
     setSearchHistory(newHistory);
     localStorage.setItem('tvSearchHistory', JSON.stringify(newHistory));
-  }
-
+  };
 
   // Debounce search term
   useEffect(() => {

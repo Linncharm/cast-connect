@@ -9,15 +9,17 @@ const lang = 'en-US';
 export function useCastAnalysis() {
   const [selectedShows, setSelectedShows] = useState<TVShow[]>([]);
   const [queryMode, setQueryMode] = useState<QueryMode>('strict');
-  const [commonCastResults, setCommonCastResults] = useState<CommonCastResult[]>([]);
+  const [commonCastResults, setCommonCastResults] = useState<
+    CommonCastResult[]
+  >([]);
   const [expandedActors, setExpandedActors] = useState<Set<number>>(new Set());
 
   // ... 实现演员分析相关逻辑
 
   // TODO: 加载角色图片
-  const loadRoleImages = (actor:CommonCastResult) => {
+  const loadRoleImages = (actor: CommonCastResult) => {
     console.log('loadRoleImages', actor.name);
-  }
+  };
 
   const handleRemoveShow = (showId: number) => {
     setSelectedShows(selectedShows.filter(show => show.id !== showId));
@@ -26,27 +28,32 @@ export function useCastAnalysis() {
   const handleAnalysis = async () => {
     try {
       // 获取所有选中剧集的演员信息
-      const castInfoPromises: Promise<ShowCastInfo>[] = selectedShows.map(async show => {
-        const tmdbService = TMDBService.getInstance();
-        const credits = await tmdbService.getTVAggregateCredits(show.id, lang);
+      const castInfoPromises: Promise<ShowCastInfo>[] = selectedShows.map(
+        async show => {
+          const tmdbService = TMDBService.getInstance();
+          const credits = await tmdbService.getTVAggregateCredits(
+            show.id,
+            lang,
+          );
 
-        return {
-          showId: show.id,
-          showName: show.name,
-          cast: credits.cast.map(actor => ({
-            id: actor.id,
-            name: actor.name,
-            profile_path: actor.profile_path,
-            roles: actor.roles.map(role => ({
-              credit_id: role.credit_id,
-              character: role.character,
-              episode_count: role.episode_count
+          return {
+            showId: show.id,
+            showName: show.name,
+            cast: credits.cast.map(actor => ({
+              id: actor.id,
+              name: actor.name,
+              profile_path: actor.profile_path,
+              roles: actor.roles.map(role => ({
+                credit_id: role.credit_id,
+                character: role.character,
+                episode_count: role.episode_count,
+              })),
+              total_episode_count: actor.total_episode_count,
+              popularity: actor.popularity,
             })),
-            total_episode_count: actor.total_episode_count,
-            popularity: actor.popularity
-          })),
-        };
-      });
+          };
+        },
+      );
 
       const showsCastInfo = await Promise.all(castInfoPromises);
 
@@ -63,14 +70,15 @@ export function useCastAnalysis() {
       });
 
       setCommonCastResults(commonCast); // 保存结果到状态
-
     } catch (error) {
       console.error('Analysis error:', error);
     }
   };
 
-
-  const findCommonCast = (showsCastInfo: ShowCastInfo[], mode: QueryMode = 'strict') => {
+  const findCommonCast = (
+    showsCastInfo: ShowCastInfo[],
+    mode: QueryMode = 'strict',
+  ) => {
     // 收集所有演员
     const allActors = new Map<number, AllActors>();
 
@@ -94,14 +102,16 @@ export function useCastAnalysis() {
             id: actor.id,
             name: actor.name,
             profile_path: actor.profile_path,
-            showAppearances: [{
-              showName: show.showName,
-              roles: actor.roles,
-              showId:show.showId
-            }],
+            showAppearances: [
+              {
+                showName: show.showName,
+                roles: actor.roles,
+                showId: show.showId,
+              },
+            ],
             showCount: 1,
             totalEpisodes: actor.total_episode_count,
-            popularity:actor.popularity
+            popularity: actor.popularity,
           });
         }
       });
@@ -143,12 +153,11 @@ export function useCastAnalysis() {
         loadRoleImages(actor);
       }
     }
-
   };
 
   const handleQueryModeChange = (mode: QueryMode) => {
-    setQueryMode(mode)
-  }
+    setQueryMode(mode);
+  };
 
   return {
     selectedShows,
@@ -159,6 +168,6 @@ export function useCastAnalysis() {
     handleQueryModeChange,
     handleAnalysis,
     handleActorExpand,
-    setSelectedShows
+    setSelectedShows,
   };
 }

@@ -12,8 +12,8 @@ interface SearchHistory {
   timestamp: string;
 }
 
-const SearchHistoryItem: React.FC<SearchHistoryItemProps> = (props) => {
-  const { item, onClick, onDelete } = props
+const SearchHistoryItem: React.FC<SearchHistoryItemProps> = props => {
+  const { item, onClick, onDelete } = props;
   return (
     <div
       key={`${item.id}-${item.timestamp}`}
@@ -42,7 +42,7 @@ const SearchHistoryItem: React.FC<SearchHistoryItemProps> = (props) => {
         </svg>
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default SearchHistoryItem
+export default SearchHistoryItem;

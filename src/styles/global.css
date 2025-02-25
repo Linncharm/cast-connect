@@ -1,10 +1,10 @@
 /* 可以添加到你的全局样式文件中 */
 .transition-all {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }
 
 .transform {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }

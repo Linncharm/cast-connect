@@ -1,6 +1,7 @@
 import React from 'react';
 import TMDBService from '@/services/tmdb';
 import { Role } from '@/types';
+import { useTranslations } from 'next-intl';
 
 interface ActorCardProps {
   actor: CommonCastResult;
@@ -20,9 +21,9 @@ interface CommonCastResult {
   totalEpisodes: number;
 }
 
-const ActorCard: React.FC<ActorCardProps> = (props) => {
-
-  const { actor, isExpanded, onExpand } = props
+const ActorCard: React.FC<ActorCardProps> = props => {
+  const { actor, isExpanded, onExpand } = props;
+  const t = useTranslations('CommonCastResults');
 
   return (
     <div
@@ -45,7 +46,7 @@ const ActorCard: React.FC<ActorCardProps> = (props) => {
         <div className="flex-1">
           <h3 className="text-lg font-bold">{actor.name}</h3>
           <p className="text-gray-400">
-            出现剧集：{actor.showAppearances.length}部
+            {t('showInCast', { count: actor.showAppearances.length })}
           </p>
           <p className="text-gray-400 text-sm">
             {actor.showAppearances.map(show => show.showName).join('、')}
@@ -90,7 +91,7 @@ const ActorCard: React.FC<ActorCardProps> = (props) => {
                       {/* 角色图片或加载状态 */}
                       <div className="w-16 h-16 rounded overflow-hidden flex-shrink-0">
                         {/*{isLoading ? (*/}
-                          <div className="w-full h-full bg-gray-800 animate-pulse" />
+                        <div className="w-full h-full bg-gray-800 animate-pulse" />
                         {/*) : roleWithImage?.still_path ? (*/}
                         {/*  // 显示图片*/}
                         {/*  <img*/}
@@ -110,7 +111,7 @@ const ActorCard: React.FC<ActorCardProps> = (props) => {
                       <div className="flex-1">
                         <p className="font-medium">{role.character}</p>
                         <p className="text-sm text-gray-400">
-                          出演 {role.episode_count} 集
+                          {t('showInEpisode', { count: actor.totalEpisodes })}
                         </p>
                       </div>
                     </div>
@@ -122,7 +123,7 @@ const ActorCard: React.FC<ActorCardProps> = (props) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default ActorCard
+export default ActorCard;

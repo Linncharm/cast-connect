@@ -15,9 +15,8 @@ interface DropDownItemProps {
   addShow: (show: TVShow) => void;
 }
 
-
-const DropDownItem:React.FC<DropDownItemProps> = (props) => {
-  const { show,index,addShow } = props
+const DropDownItem: React.FC<DropDownItemProps> = props => {
+  const { show, index, addShow } = props;
 
   return (
     <div
@@ -50,7 +49,7 @@ const DropDownItem:React.FC<DropDownItemProps> = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DropDownItem
+export default DropDownItem;

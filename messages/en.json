@@ -1,0 +1,68 @@
+{
+  "common": {
+    "language": {
+      "switch": "Switch Language",
+      "en": "English",
+      "zh": "Chinese"
+    },
+    "locale": "{locale, select, en {English} zh {Chinese} other {Unknown}}",
+    "datetime": {
+      "currentYear": "{year}"
+    }
+  },
+  "nav": {
+    "title": "Show Connection Query",
+    "home": "Home",
+    "about": "About",
+    "language": "Language",
+    "contact": "Contact Us"
+  },
+  "meta": {
+    "title": "Show Connection Query System",
+    "description": "Discover actor connections between different TV shows"
+  },
+  "header": {
+    "title": "Show Connection Query",
+    "description": "Discover actor connections between different TV shows"
+  },
+  "footer": {
+    "about": {
+      "title": "About Us",
+      "description": "The Show Connection Query System helps you discover actor connections between different TV shows."
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "home": "Home",
+      "about": "About",
+      "contact": "Contact Us"
+    },
+    "contact": {
+      "title": "Contact Information",
+      "email": "Email: contact@example.com",
+      "github": "GitHub: @Linncharm"
+    }
+  },
+  "SearchBar": {
+    "title": "Search",
+    "placeholder": "Search TV shows",
+    "button": "Search",
+    "latestResearched": "Recent Searches",
+    "searching": "Searching..."
+  },
+  "ModeSelect": {
+    "title": "Select Mode",
+    "fuzzy": "Fuzzy Search",
+    "strict": "Exact Match"
+  },
+  "Analysis": {
+    "analyze": "Analyze Connections"
+  },
+  "SelectedShowsList": {
+    "noSelectedShows": "Please search and select shows to begin analysis"
+  },
+  "CommonCastResults": {
+    "title": "Common Cast Members",
+    "showInCast": "{count, plural, =1 {Appeared in # show} other {Appeared in # shows}}",
+    "showInEpisode": "{count, plural, =1 {Appeared in # episode} other {Appeared in # episodes}}"
+  }
+}

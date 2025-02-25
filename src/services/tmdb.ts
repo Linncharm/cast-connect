@@ -1,5 +1,10 @@
 import { TMDB_CONFIG, IMAGE_SIZES } from '@/config/tmdb';
-import { SearchTVResponse, TVShow, TMDBError, AggregateCredits } from '@/types/tmdb';
+import {
+  SearchTVResponse,
+  TVShow,
+  TMDBError,
+  AggregateCredits,
+} from '@/types/tmdb';
 
 class TMDBService {
   private static instance: TMDBService;
@@ -21,7 +26,10 @@ class TMDBService {
     return TMDBService.instance;
   }
 
-  private async fetchAPI<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
+  private async fetchAPI<T>(
+    endpoint: string,
+    options: RequestInit = {},
+  ): Promise<T> {
     try {
       const response = await fetch(`${this.baseURL}${endpoint}`, {
         ...options,
@@ -31,7 +39,9 @@ class TMDBService {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error((data as TMDBError).status_message || 'API request failed');
+        throw new Error(
+          (data as TMDBError).status_message || 'API request failed',
+        );
       }
 
       return data as T;
@@ -47,7 +57,11 @@ class TMDBService {
    * @param page 页码
    * @param language 语言代码
    */
-  public async searchTV(query: string, page: number = 1, language: string = 'zh-CN'): Promise<SearchTVResponse> {
+  public async searchTV(
+    query: string,
+    page: number = 1,
+    language: string = 'zh-CN',
+  ): Promise<SearchTVResponse> {
     const endpoint = `/search/tv?query=${encodeURIComponent(query)}&include_adult=false&language=${language}&page=${page}`;
     return this.fetchAPI<SearchTVResponse>(endpoint);
   }
@@ -57,7 +71,10 @@ class TMDBService {
    * @param id TMDB 电视节目 ID
    * @param language 语言代码
    */
-  public async getTVDetails(id: number, language: string = 'zh-CN'): Promise<TVShow> {
+  public async getTVDetails(
+    id: number,
+    language: string = 'zh-CN',
+  ): Promise<TVShow> {
     const endpoint = `/tv/${id}?language=${language}`;
     return this.fetchAPI<TVShow>(endpoint);
   }
@@ -67,7 +84,10 @@ class TMDBService {
    * @param id TMDB 电视节目 ID
    * @param language 语言代码
    */
-  public async getTVAggregateCredits(id: number, language: string = 'zh-CN'): Promise<AggregateCredits> {
+  public async getTVAggregateCredits(
+    id: number,
+    language: string = 'zh-CN',
+  ): Promise<AggregateCredits> {
     const endpoint = `/tv/${id}/aggregate_credits?language=${language}`;
     return this.fetchAPI<AggregateCredits>(endpoint);
   }
@@ -77,12 +97,18 @@ class TMDBService {
    * @param path 图片路径
    * @param size 图片尺寸
    */
-  public static getImageUrl(path: string | null, size: keyof typeof IMAGE_SIZES.poster = 'w500'): string {
+  public static getImageUrl(
+    path: string | null,
+    size: keyof typeof IMAGE_SIZES.poster = 'w500',
+  ): string {
     if (!path) return '/images/no-poster.png'; // 你需要添加一个默认的海报图片
     return `${TMDB_CONFIG.IMAGE_BASE_URL}/${size}${path}`;
   }
 
-  public async getTVSeasonCredits(tvId: number, seasonNumber: number): Promise<any> {
+  public async getTVSeasonCredits(
+    tvId: number,
+    seasonNumber: number,
+  ): Promise<any> {
     const endpoint = `/tv/${tvId}/season/${seasonNumber}`;
     return this.fetchAPI(endpoint);
   }
@@ -92,7 +118,6 @@ class TMDBService {
     const endpoint = `/tv/${tvId}`;
     return this.fetchAPI(endpoint);
   }
-
 
   // 可以继续添加其他 TMDB API 方法...
 }
