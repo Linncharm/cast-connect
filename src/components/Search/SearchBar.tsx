@@ -13,7 +13,6 @@ interface SearchBarProps {
   showHistory: boolean;
   onHistoryItemClick: (name: string) => void;
   onHistoryItemDelete: (id: number) => void;
-  searchBarRef: React.RefObject<HTMLInputElement | null>;
   onFocus: () => void;
   onBlur: () => void;
 }
@@ -28,7 +27,6 @@ const SearchBar: React.FC<SearchBarProps> = props => {
     showHistory,
     onHistoryItemClick,
     onHistoryItemDelete,
-    searchBarRef,
     onFocus,
     onBlur,
   } = props;
@@ -42,7 +40,6 @@ const SearchBar: React.FC<SearchBarProps> = props => {
         className="absolute left-4 top-3.5 h-5 w-5 text-gray-400 dark:text-gray-400 transition-colors duration-200"
       />
       <input
-        ref={searchBarRef}
         id="show-search"
         type="search"
         value={searchTerm}

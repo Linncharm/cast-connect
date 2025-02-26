@@ -33,6 +33,15 @@ export function useSearch() {
       return;
     }
 
+    // const url = `https://api.themoviedb.org/3/search/tv?query=${query}&include_adult=false&language=en-US&page=1`;
+    // const options = {
+    //   method: 'GET',
+    //   headers: {
+    //     accept: 'application/json',
+    //     Authorization: `Bearer ${process.env.TMDB_API_KEY}`
+    //   }
+    // };
+
     setIsLoading(true);
     try {
       const tmdbService = TMDBService.getInstance();
@@ -44,6 +53,17 @@ export function useSearch() {
     } finally {
       setIsLoading(false);
     }
+    // try {
+    //   const data = await fetch(url, options)
+    //   const response = await data.json()
+    //   console.log('response', response)
+    //   setSearchResults(response.results.slice(0, 6)); // 只显示前6个结果
+    // } catch (error) {
+    //   console.error('Search error:', error);
+    //   setSearchResults([]);
+    // } finally {
+    //   setIsLoading(false);
+    // }
   }, []);
 
   const handleOnBlur = () => {

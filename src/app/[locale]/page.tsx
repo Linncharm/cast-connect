@@ -1,7 +1,7 @@
-'use client';
+'use client'
 
 import { useTranslations } from 'next-intl';
-import React, { useRef } from 'react';
+import React from 'react';
 import { MainLayout } from '@/components/Layout/MainLayout';
 import { Header } from '@/components/Header/Header';
 import SearchBar from '@/components/Search/SearchBar';
@@ -72,11 +72,10 @@ export default function Home() {
     setSearchResults([]);
   };
 
-  const searchBarRef = useRef<HTMLInputElement>(null);
-
   return (
     <MainLayout>
       <Header />
+      {/* 操作栏 */}
       <div className="flex flex-col md:flex-row gap-4">
         <div className="relative flex-1">
           {/* 搜索区域 + 搜索历史记录 */}
@@ -87,7 +86,6 @@ export default function Home() {
             showHistory={showHistory}
             onHistoryItemClick={handleHistoryItemClick}
             onHistoryItemDelete={handleHistoryItemDelete}
-            searchBarRef={searchBarRef}
             onFocus={handleOnFocus}
             onBlur={handleOnBlur}
           />
@@ -132,6 +130,11 @@ export default function Home() {
         expandedActors={expandedActors}
         onActorExpand={handleActorExpand}
       />
+      {/*Feature*/}
+      {/*How to Use*/}
+      {/*Why Choose This*/}
+      {/*FAQ*/}
+      {/*Privacy Protection*/}
     </MainLayout>
   );
 }
