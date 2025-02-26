@@ -1,4 +1,7 @@
+"use server";
+
 import { NextRequest, NextResponse } from 'next/server';
+import axios from 'axios';
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
@@ -7,37 +10,36 @@ async function fetchTMDB(
   endpoint: string,
   searchParams?: URLSearchParams
 ) {
-  const url = new URL(endpoint, TMDB_BASE_URL);
-  console.log('url', url);
+  const url = new URL(`${TMDB_BASE_URL}${endpoint}`);
   if (searchParams) {
     searchParams.forEach((value, key) => url.searchParams.append(key, value));
   }
 
-  console.log('searchParams!!!!!!', searchParams);
+  // const response = await fetch('https://api.themoviedb.org/3/search/tv?query=Breaking&include_adult=false&language=en-US&page=1', {
+  //   headers: {
+  //     accept: 'application/json',
+  //     Authorization: `Bearer ${TMDB_API_KEY}`,
+  //   },
+  // });
 
-  const response = await fetch(url, {
+  const response = await axios({
+    url: url.href,
+    method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${TMDB_API_KEY}`,
+      'Accept': 'application/json',
+      'Authorization': `Bearer ${TMDB_API_KEY}`,
     },
-    // next: { revalidate: 3600 } // 1小时缓存
+    timeout: 10000,
   });
 
-  console.log('response????????', response);
 
-  if (!response.ok) {
-    throw new Error('TMDB API request failed');
-  }
-
-  return response.json();
+  return response.data;
 }
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const endpoint = searchParams.get('endpoint');
 
-  console.log('searchParams', searchParams);
-  console.log('endpoint', endpoint);
 
   if (!endpoint) {
     return NextResponse.json(
@@ -50,7 +52,6 @@ export async function GET(request: NextRequest) {
     // 移除endpoint参数，只传递其他参数到TMDB
     searchParams.delete('endpoint');
     const data = await fetchTMDB(endpoint, searchParams);
-    console.log('data', data);
     return NextResponse.json(data);
   } catch (error) {
     console.error('TMDB API Error:', error);

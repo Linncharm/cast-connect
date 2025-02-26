@@ -32,7 +32,11 @@ class TMDBService {
       });
 
       const response = await fetch(`${this.baseURL}?${searchParams}`, {
-        next: { revalidate: 3600 }
+        next: { revalidate: 3600 },
+        headers: {
+          referrerPolicy: 'no-referrer', // 设置 referrer policy
+        },
+        credentials: 'same-origin'
       });
 
       console.log('response', response);
