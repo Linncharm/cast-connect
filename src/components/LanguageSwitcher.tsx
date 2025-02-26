@@ -47,16 +47,18 @@ export default function LanguageSwitcher() {
   return (
     <div className="relative" ref={dropdownRef}>
       <button
-        className="flex items-center space-x-2 px-4 py-2 text-gray-300 hover:text-white transition-colors rounded-md hover:bg-gray-800"
+        className="flex items-center space-x-2 px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-label={t('language.switch')}
         disabled={isPending}
       >
-        <span>{t('locale', {locale:currentLocale})}</span>
+        <span>{t('locale', { locale: currentLocale })}</span>
         <svg
-          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-4 h-4 transition-transform duration-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -73,7 +75,7 @@ export default function LanguageSwitcher() {
 
       {isOpen && (
         <div
-          className="absolute right-0 mt-2 py-2 w-48 bg-gray-800 rounded-lg shadow-xl z-50 border border-gray-700"
+          className="absolute right-0 mt-2 py-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg dark:shadow-xl z-50 border border-gray-200 dark:border-gray-700"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="language-menu"
@@ -82,12 +84,16 @@ export default function LanguageSwitcher() {
             <button
               key={locale}
               role="menuitem"
-              className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-700 transition-colors
-                ${currentLocale === locale ? 'text-blue-400' : 'text-gray-300'}`}
+              className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors
+            ${
+              currentLocale === locale
+                ? 'text-blue-600 dark:text-blue-400'
+                : 'text-gray-600 dark:text-gray-300'
+            }`}
               onClick={() => handleLanguageChange(locale)}
               disabled={isPending}
             >
-              <span>{t('locale', {locale:locale})}</span>
+              <span>{t('locale', { locale: locale })}</span>
             </button>
           ))}
         </div>

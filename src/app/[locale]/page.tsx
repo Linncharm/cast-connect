@@ -15,7 +15,6 @@ import { SearchHistory, TVShow } from '@/types';
 import '../globals.css';
 
 export default function Home() {
-
   const t = useTranslations('Analysis');
 
   const {
@@ -78,7 +77,7 @@ export default function Home() {
   return (
     <MainLayout>
       <Header />
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         <div className="relative flex-1">
           {/* 搜索区域 + 搜索历史记录 */}
           <SearchBar
@@ -100,18 +99,27 @@ export default function Home() {
             />
           )}
         </div>
-        <QueryModeSelect value={queryMode} onChange={handleQueryModeChange} />
-        <button
-          onClick={handleAnalysis}
-          disabled={selectedShows.length < 2}
-          className="px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 rounded-lg font-medium transition-colors"
-        >
-          {t('analyze')}
-        </button>
+        {/* 查询模式和分析按钮 - 在移动端水平排列 */}
+        <div className="flex justify-around gap-4 w-full md:w-auto">
+          <QueryModeSelect value={queryMode} onChange={handleQueryModeChange} />
+          <button
+            onClick={handleAnalysis}
+            disabled={selectedShows.length < 2}
+            className="px-6 py-3
+      bg-blue-600 hover:bg-blue-700
+      disabled:bg-gray-300 dark:disabled:bg-gray-600
+      disabled:text-gray-500 dark:disabled:text-gray-400
+      text-white
+      rounded-lg font-medium
+      transition-colors duration-200"
+          >
+            {t('analyze')}
+          </button>
+        </div>
       </div>
 
       {/* 已选剧集容器 */}
-      <div className="bg-gray-800 rounded-lg p-4 min-h-[200px] max-h-[400px] overflow-y-auto">
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-4 min-h-[200px] max-h-[400px] overflow-y-auto border border-gray-200 dark:border-gray-700 transition-colors duration-200">
         <SelectedShowsList
           shows={selectedShows}
           onRemoveShow={handleRemoveShow}

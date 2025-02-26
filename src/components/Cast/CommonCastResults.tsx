@@ -1,6 +1,6 @@
 import { Role } from '@/types';
 import ActorCard from '@/components/Cast/components/ActorCard';
-import {  useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 
 interface CommonCastResult {
   id: number;
@@ -25,13 +25,12 @@ export function CommonCastResults({
   expandedActors,
   onActorExpand,
 }: CommonCastResultsProps) {
-
   const t = useTranslations('CommonCastResults');
   if (results.length === 0) return null;
 
   return (
     <div className="mt-8">
-      <h2 className="text-xl font-bold mb-4">
+      <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-200">
         {t('title')}
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -14,18 +14,36 @@ interface SearchHistory {
 
 const SearchHistoryItem: React.FC<SearchHistoryItemProps> = props => {
   const { item, onClick, onDelete } = props;
+
   return (
     <div
       key={`${item.id}-${item.timestamp}`}
       onClick={onClick}
-      className="px-4 py-2 hover:bg-gray-700 cursor-pointer flex items-center gap-2 group"
+      className="px-4 py-2
+        hover:bg-gray-100 dark:hover:bg-gray-700
+        cursor-pointer
+        flex items-center gap-2
+        group
+        transition-colors duration-200"
     >
       <div className="flex-1">
-        <span className="text-sm text-gray-200">{item.name}</span>
+        <span
+          className="text-sm
+          text-gray-700 dark:text-gray-200
+          transition-colors duration-200"
+        >
+          {item.name}
+        </span>
       </div>
       <button
-        onClick={onDelete}
-        className="opacity-0 group-hover:opacity-100 text-gray-400 hover:text-gray-200 transition-opacity"
+        onClick={e => {
+          e.stopPropagation(); // 防止触发父元素的 onClick
+          onDelete();
+        }}
+        className="opacity-0 group-hover:opacity-100
+          text-gray-400
+          hover:text-gray-600 dark:hover:text-gray-200
+          transition-all duration-200"
         aria-label="删除历史记录"
       >
         <svg

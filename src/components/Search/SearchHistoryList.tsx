@@ -20,14 +20,30 @@ export function SearchHistoryList({
   onItemClick,
   onItemDelete,
 }: SearchHistoryListProps) {
-
   const t = useTranslations('SearchBar');
   if (!show || history.length === 0) return null;
 
   return (
-    <div className="absolute w-full mt-2 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-10 overflow-hidden custom-scrollbar">
-      <div className="p-2 border-b border-gray-700">
-        <span className="text-sm text-gray-400">
+    <div
+      className="absolute w-full mt-2
+    bg-white dark:bg-gray-800
+    border border-gray-200 dark:border-gray-700
+    rounded-lg
+    shadow-lg dark:shadow-xl
+    z-10 overflow-hidden
+    custom-scrollbar
+    transition-colors duration-200"
+    >
+      <div
+        className="p-2
+      border-b border-gray-200 dark:border-gray-700
+      transition-colors duration-200"
+      >
+        <span
+          className="text-sm
+        text-gray-500 dark:text-gray-400
+        transition-colors duration-200"
+        >
           {t('latestResearched')}
         </span>
       </div>

@@ -19,7 +19,6 @@ interface SearchBarProps {
 }
 
 const SearchBar: React.FC<SearchBarProps> = props => {
-
   const t = useTranslations('SearchBar');
 
   const {
@@ -40,7 +39,7 @@ const SearchBar: React.FC<SearchBarProps> = props => {
       </label>
       <SearchIcon
         aria-hidden="true"
-        className="absolute left-4 top-3.5 h-5 w-5 text-gray-400"
+        className="absolute left-4 top-3.5 h-5 w-5 text-gray-400 dark:text-gray-400 transition-colors duration-200"
       />
       <input
         ref={searchBarRef}
@@ -49,7 +48,15 @@ const SearchBar: React.FC<SearchBarProps> = props => {
         value={searchTerm}
         onChange={e => onSearch(e.target.value)}
         placeholder={t('placeholder')}
-        className="w-full pl-12 pr-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:border-blue-500 transition-colors"
+        className="w-full pl-12 pr-4 py-3 rounded-lg
+      bg-white dark:bg-gray-800
+      text-gray-900 dark:text-gray-100
+      border border-gray-200 dark:border-gray-700
+      placeholder-gray-500 dark:placeholder-gray-400
+      focus:outline-none
+      focus:border-blue-500 dark:focus:border-blue-500
+      focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-500/20
+      transition-colors duration-200"
         aria-label={t('placeholder')}
         onFocus={onFocus}
         onBlur={onBlur}

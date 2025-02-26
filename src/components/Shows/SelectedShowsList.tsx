@@ -18,12 +18,11 @@ export function SelectedShowsList({
   shows,
   onRemoveShow,
 }: SelectedShowsListProps) {
-
   const t = useTranslations('SelectedShowsList');
 
   if (shows.length === 0) {
     return (
-      <div className="text-center text-gray-400 py-8">
+      <div className="text-center text-gray-500 dark:text-gray-400 py-8 transition-colors duration-200">
         {t('noSelectedShows')}
       </div>
     );

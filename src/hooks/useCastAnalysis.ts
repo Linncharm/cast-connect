@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import TMDBService from '@/services/tmdb';
 import { CommonCastResult, ShowCastInfo, TVShow, AllActors } from '@/types';
+import { useLocale } from 'next-intl';
 
 type QueryMode = 'strict' | 'fuzzy';
 
-const lang = 'en-US';
-
 export function useCastAnalysis() {
+  const currentLocale = useLocale();
   const [selectedShows, setSelectedShows] = useState<TVShow[]>([]);
   const [queryMode, setQueryMode] = useState<QueryMode>('strict');
   const [commonCastResults, setCommonCastResults] = useState<
@@ -33,7 +33,7 @@ export function useCastAnalysis() {
           const tmdbService = TMDBService.getInstance();
           const credits = await tmdbService.getTVAggregateCredits(
             show.id,
-            lang,
+            currentLocale,
           );
 
           return {

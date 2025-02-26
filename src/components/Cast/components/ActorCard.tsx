@@ -28,12 +28,17 @@ const ActorCard: React.FC<ActorCardProps> = props => {
   return (
     <div
       key={actor.id}
-      className="bg-gray-700 rounded-lg overflow-hidden transition-all duration-300"
+      className="bg-white dark:bg-gray-700
+        rounded-lg overflow-hidden
+        border border-gray-200 dark:border-gray-600
+        transition-all duration-300"
     >
       {/* 折叠头部 */}
       <div
         onClick={onExpand}
-        className="p-4 flex items-center gap-4 cursor-pointer hover:bg-gray-600 transition-colors"
+        className="p-4 flex items-center gap-4 cursor-pointer
+          hover:bg-gray-100 dark:hover:bg-gray-600
+          transition-colors"
       >
         {/* 演员头像 */}
         <img
@@ -44,18 +49,20 @@ const ActorCard: React.FC<ActorCardProps> = props => {
 
         {/* 演员信息 */}
         <div className="flex-1">
-          <h3 className="text-lg font-bold">{actor.name}</h3>
-          <p className="text-gray-400">
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white transition-colors duration-200">
+            {actor.name}
+          </h3>
+          <p className="text-gray-500 dark:text-gray-400 transition-colors duration-200">
             {t('showInCast', { count: actor.showAppearances.length })}
           </p>
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-200">
             {actor.showAppearances.map(show => show.showName).join('、')}
           </p>
         </div>
 
         {/* 展开/折叠图标 */}
         <svg
-          className={`w-6 h-6 transition-transform ${
+          className={`w-6 h-6 text-gray-400 dark:text-gray-400 transition-transform ${
             isExpanded ? 'transform rotate-180' : ''
           }`}
           fill="none"
@@ -73,10 +80,12 @@ const ActorCard: React.FC<ActorCardProps> = props => {
 
       {/* 展开的详细信息 */}
       {isExpanded && (
-        <div className="border-t border-gray-600 divide-y divide-gray-600">
+        <div className="border-t border-gray-200 dark:border-gray-600 divide-y divide-gray-200 dark:divide-gray-600">
           {actor.showAppearances.map(appearance => (
             <div key={appearance.showName} className="p-4">
-              <h4 className="font-semibold mb-3">{appearance.showName}</h4>
+              <h4 className="font-semibold mb-3 text-gray-900 dark:text-white transition-colors duration-200">
+                {appearance.showName}
+              </h4>
               <div className="space-y-3">
                 {appearance.roles.map(role => {
                   const cacheKey = `${appearance.showId}-${actor.id}-${role.credit_id}`;
@@ -90,8 +99,8 @@ const ActorCard: React.FC<ActorCardProps> = props => {
                     >
                       {/* 角色图片或加载状态 */}
                       <div className="w-16 h-16 rounded overflow-hidden flex-shrink-0">
+                        <div className="w-full h-full bg-gray-100 dark:bg-gray-800 animate-pulse" />
                         {/*{isLoading ? (*/}
-                        <div className="w-full h-full bg-gray-800 animate-pulse" />
                         {/*) : roleWithImage?.still_path ? (*/}
                         {/*  // 显示图片*/}
                         {/*  <img*/}
@@ -109,8 +118,10 @@ const ActorCard: React.FC<ActorCardProps> = props => {
                       </div>
 
                       <div className="flex-1">
-                        <p className="font-medium">{role.character}</p>
-                        <p className="text-sm text-gray-400">
+                        <p className="font-medium text-gray-900 dark:text-white transition-colors duration-200">
+                          {role.character}
+                        </p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-200">
                           {t('showInEpisode', { count: actor.totalEpisodes })}
                         </p>
                       </div>

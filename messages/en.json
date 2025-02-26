@@ -15,7 +15,7 @@
     "home": "Home",
     "about": "About",
     "language": "Language",
-    "contact": "Contact Us"
+    "contact": "Contact Me"
   },
   "meta": {
     "title": "Show Connection Query System",
@@ -27,19 +27,21 @@
   },
   "footer": {
     "about": {
-      "title": "About Us",
+      "title": "About Me",
       "description": "The Show Connection Query System helps you discover actor connections between different TV shows."
     },
     "quickLinks": {
       "title": "Quick Links",
       "home": "Home",
       "about": "About",
-      "contact": "Contact Us"
+      "contact": "Contact Me"
     },
     "contact": {
       "title": "Contact Information",
-      "email": "Email: contact@example.com",
-      "github": "GitHub: @Linncharm"
+      "email": "Email: ",
+      "emailUrl": "linncharm9@gmail.com",
+      "github": "GitHub: ",
+      "githubUrl": "https://github.com/Linncharm"
     }
   },
   "SearchBar": {
@@ -52,7 +54,7 @@
   "ModeSelect": {
     "title": "Select Mode",
     "fuzzy": "Fuzzy Search",
-    "strict": "Exact Match"
+    "strict": "Precise Search"
   },
   "Analysis": {
     "analyze": "Analyze Connections"
@@ -64,5 +66,10 @@
     "title": "Common Cast Members",
     "showInCast": "{count, plural, =1 {Appeared in # show} other {Appeared in # shows}}",
     "showInEpisode": "{count, plural, =1 {Appeared in # episode} other {Appeared in # episodes}}"
+  },
+  "Theme": {
+    "toggle": "Toggle theme",
+    "light": "Light mode",
+    "dark": "Dark mode"
   }
 }

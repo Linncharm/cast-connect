@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import TMDBService from '@/services/tmdb';
+import { useLocale } from 'next-intl';
 
 interface SearchHistory {
   id: number;
@@ -16,6 +17,7 @@ interface TVShow {
 }
 
 export function useSearch() {
+  const currentLocale = useLocale();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<TVShow[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +36,7 @@ export function useSearch() {
     setIsLoading(true);
     try {
       const tmdbService = TMDBService.getInstance();
-      const response = await tmdbService.searchTV(query, 1, 'zh-CN');
+      const response = await tmdbService.searchTV(query, 1, currentLocale);
       setSearchResults(response.results.slice(0, 6)); // 只显示前6个结果
     } catch (error) {
       console.error('Search error:', error);
