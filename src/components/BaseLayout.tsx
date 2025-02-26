@@ -18,7 +18,7 @@ export default async function BaseLayout({ children, locale }: Props) {
 
   return (
     <html className="h-full" lang={locale}>
-      <body className="flex h-full w-full flex-col">
+      <body className="flex h-screen w-full flex-col">
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
             {children}
