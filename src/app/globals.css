@@ -25,3 +25,36 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #A0AEC0 #EDF2F7;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #A0AEC0;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #EDF2F7;
+}
+
+.dark .custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #4A5568 #1A202C;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #4A5568;
+  border-radius: 4px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background-color: #1A202C;
+}

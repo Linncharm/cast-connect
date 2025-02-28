@@ -15,7 +15,7 @@ const SearchResultsDropdown: React.FC<SearchResultsDropdownProps> = props => {
   const t = useTranslations('SearchBar');
   const { searchResults, addShow, isLoading } = props;
 
-  return (
+  return searchResults.length > 0 ? (
     <div
       className="absolute w-full mt-2
       bg-white dark:bg-gray-800
@@ -42,11 +42,16 @@ const SearchResultsDropdown: React.FC<SearchResultsDropdownProps> = props => {
         )}
 
         {searchResults.map((show, index) => (
-          <DropDownItem show={show} index={index} addShow={addShow} />
+          <DropDownItem
+            key={show.id}
+            show={show}
+            index={index}
+            addShow={addShow}
+          />
         ))}
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default SearchResultsDropdown;

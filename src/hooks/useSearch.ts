@@ -17,11 +17,14 @@ interface TVShow {
 }
 
 export function useSearch() {
+
+  const savedHistory: SearchHistory[] = JSON.parse(localStorage.getItem('tvSearchHistory') as string);
+
   const currentLocale = useLocale();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<TVShow[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [searchHistory, setSearchHistory] = useState<SearchHistory[]>([]);
+  const [searchHistory, setSearchHistory] = useState<SearchHistory[]>(savedHistory || []);
   const [showHistory, setShowHistory] = useState(false);
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
@@ -53,17 +56,6 @@ export function useSearch() {
     } finally {
       setIsLoading(false);
     }
-    // try {
-    //   const data = await fetch(url, options)
-    //   const response = await data.json()
-    //   console.log('response', response)
-    //   setSearchResults(response.results.slice(0, 6)); // 只显示前6个结果
-    // } catch (error) {
-    //   console.error('Search error:', error);
-    //   setSearchResults([]);
-    // } finally {
-    //   setIsLoading(false);
-    // }
   }, []);
 
   const handleOnBlur = () => {
