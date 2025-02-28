@@ -41,7 +41,10 @@ export function CommonCastResults({
     allExpanded,
 
     handleExpandToggle,
-    handleSearchChange
+    handleSearchChange,
+
+    handleFilterModalSubmit,
+    filterHandlers,
   } = useCommonSearch(results);
 
   // Combine manually expanded actors with auto-expanded actors
@@ -73,6 +76,9 @@ export function CommonCastResults({
         allExpanded={allExpanded}
         handleExpandToggle={handleExpandToggle}
         handleSearchChange={handleSearchChange}
+
+        handleFilterModalSubmit={handleFilterModalSubmit}
+        filterHandlers={filterHandlers}
         />
 
         {searchResults.length > 0 ? (

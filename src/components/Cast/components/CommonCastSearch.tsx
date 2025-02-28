@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import FilterModal from '@/components/Cast/components/FilterModal';
+import { FilterHandlers } from '@/components/Cast/types';
 
 interface CommonCastSearchProps {
   searchTerm: string;
@@ -7,6 +8,11 @@ interface CommonCastSearchProps {
   allExpanded: boolean;
   handleExpandToggle: () => void;
   handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+
+  // 传递方向：CommonCastResults -> CommonCastSearch -> FilterModal
+  handleFilterModalSubmit: () => void; // 纯介质
+  filterHandlers: FilterHandlers; // 纯介质
+
 }
 
 const CommonCastSearch: React.FC<CommonCastSearchProps> = (props) => {
@@ -16,7 +22,9 @@ const CommonCastSearch: React.FC<CommonCastSearchProps> = (props) => {
     setSearchTerm,
     allExpanded,
     handleExpandToggle,
-    handleSearchChange
+    handleSearchChange,
+    handleFilterModalSubmit,
+    filterHandlers
   } = props;
 
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
@@ -115,6 +123,8 @@ const CommonCastSearch: React.FC<CommonCastSearchProps> = (props) => {
       <FilterModal
         filterModalVisible={isFilterModalOpen}
         setFilterModalVisible={setIsFilterModalOpen}
+        handleFilterModalSubmit={handleFilterModalSubmit}
+        filterHandlers={filterHandlers}
       />
 
     </>
