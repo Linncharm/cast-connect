@@ -89,11 +89,11 @@ const FilterModal: React.FC<FilterModalProps> = (props) => {
                     onChange={handleSortTypeChange}
                   >
                     <option value="name">姓名</option>
-                    <option value="episodes">出场集数</option>
+                    <option value="showCount">出场集数</option>
                     <option value="popularity">人气值</option>
                   </select>
                   <select
-                    className="w-20 rounded-md border border-gray-300 dark:border-gray-600 py-2 px-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="w-36 rounded-md border border-gray-300 dark:border-gray-600 py-2 px-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                     value={sortOrder[1]}
                     onChange={handleSortOrderChange}
                   >

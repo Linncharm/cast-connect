@@ -60,13 +60,19 @@ export function CommonCastResults({
   return (
     <div className="mt-8">
 
-      <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white" style={{ gridTemplateRows: 'auto' }}>
+      <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
         {t('title')}
-        {searchTerm.trim() && (
-          <span className="ml-2 text-base font-normal text-gray-500 dark:text-gray-400">
-            {/*{t('searchResults', { count: searchResults.length }) || `${searchResults.length} results`}*/}
+        {searchTerm.trim() ? (
+          <span className="ml-4 text-base font-normal text-gray-500 dark:text-gray-400">
+            {t('searchResults', { count: searchResults.length })}
           </span>
-        )}
+        ) : (
+          <span className="ml-4 text-base font-normal text-gray-500 dark:text-gray-400">
+            {t('searchResults', { count: results.length })}
+          </span>
+        )
+
+        }
       </h2>
 
       {/* Search Component with Selection Options */}
@@ -82,33 +88,36 @@ export function CommonCastResults({
         />
 
         {searchResults.length > 0 ? (
-          <div className="flex flex-col md:flex-row gap-4">
-            {/* Left column */}
-            <div className="flex-1 flex flex-col gap-4">
-              {searchResults.filter((_, index) => index % 2 === 0).map(actor => (
-                <ActorCard
-                  key={actor.id}
-                  actor={actor}
-                  isExpanded={effectiveExpandedActors.has(actor.id)}
-                  onExpand={() => onActorExpand(actor.id)}
-                  searchTerm={searchTerm}
-                />
-              ))}
-            </div>
+          <div className="max-h-[1000px] overflow-y-auto">
+            <div className="flex flex-col md:flex-row gap-4">
+              {/* Left column */}
+              <div className="flex-1 flex flex-col gap-4">
+                {searchResults.filter((_, index) => index % 2 === 0).map(actor => (
+                  <ActorCard
+                    key={actor.id}
+                    actor={actor}
+                    isExpanded={effectiveExpandedActors.has(actor.id)}
+                    onExpand={() => onActorExpand(actor.id)}
+                    searchTerm={searchTerm}
+                  />
+                ))}
+              </div>
 
-            {/* Right column */}
-            <div className="flex-1 flex flex-col gap-4">
-              {searchResults.filter((_, index) => index % 2 === 1).map(actor => (
-                <ActorCard
-                  key={actor.id}
-                  actor={actor}
-                  isExpanded={effectiveExpandedActors.has(actor.id)}
-                  onExpand={() => onActorExpand(actor.id)}
-                  searchTerm={searchTerm}
-                />
-              ))}
+              {/* Right column */}
+              <div className="flex-1 flex flex-col gap-4">
+                {searchResults.filter((_, index) => index % 2 === 1).map(actor => (
+                  <ActorCard
+                    key={actor.id}
+                    actor={actor}
+                    isExpanded={effectiveExpandedActors.has(actor.id)}
+                    onExpand={() => onActorExpand(actor.id)}
+                    searchTerm={searchTerm}
+                  />
+                ))}
+              </div>
             </div>
           </div>
+
         ) : searchTerm.trim() ? (
           <div className="text-center py-10 bg-gray-50 dark:bg-gray-800 rounded-lg">
             <p className="text-gray-500 dark:text-gray-400">
@@ -116,7 +125,8 @@ export function CommonCastResults({
             </p>
           </div>
         ) : null}
-      </div>
-      );
-      }
-      export default CommonCastResults;
+    </div>
+  );
+}
+
+export default CommonCastResults;

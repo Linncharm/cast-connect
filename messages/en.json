@@ -65,7 +65,8 @@
   "CommonCastResults": {
     "title": "Common Cast Members",
     "showInCast": "{count, plural, =1 {Appeared in # show} other {Appeared in # shows}}",
-    "showInEpisode": "{count, plural, =1 {Appeared in # episode} other {Appeared in # episodes}}"
+    "showInEpisode": "{count, plural, =1 {Appeared in # episode} other {Appeared in # episodes}}",
+    "searchResults": "{count, plural, =1 {Match with # result} other {Match with # results}}"
   },
   "Theme": {
     "toggle": "Toggle theme",

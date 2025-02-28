@@ -54,7 +54,7 @@ export default function LanguageSwitcher() {
         aria-label={t('language.switch')}
         disabled={isPending}
       >
-        <span>{t('locale', { locale: currentLocale })}</span>
+        {t('locale', { locale: currentLocale })}
         <svg
           className={`w-4 h-4 transition-transform duration-300 ${
             isOpen ? 'rotate-180' : ''

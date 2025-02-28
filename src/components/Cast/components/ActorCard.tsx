@@ -158,11 +158,11 @@ const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
                     const isLoading = loadingRoles.has(cacheKey);
 
                     // Load image when expanded
-                    useEffect(() => {
-                      if (isExpanded) {
-                        loadRoleImage(appearance, role);
-                      }
-                    }, [isExpanded, appearance.showId, role.credit_id]);
+                    // useEffect(() => {
+                    //   if (isExpanded) {
+                    //     loadRoleImage(appearance, role);
+                    //   }
+                    // }, [isExpanded, appearance.showId, role.credit_id]);
 
                     return (
                       <div
@@ -179,7 +179,7 @@ const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
                             <HighlightText text={role.character} searchTerm={searchTerm} />
                           </p>
                           <p className="text-sm text-gray-500 dark:text-gray-400">
-                            {t('showInEpisode', { count: actor.totalEpisodes })}
+                            {t('showInEpisode', { count: role.episode_count })}
                           </p>
                         </div>
                       </div>

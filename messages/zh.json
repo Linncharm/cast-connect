@@ -65,7 +65,8 @@
   "CommonCastResults": {
     "title": "共同演员",
     "showInCast": "共出演了{count}部剧集",
-    "showInEpisode": "出演 {count} 集"
+    "showInEpisode": "出演 {count} 集",
+    "searchResults": "匹配到 {count} 个结果"
   },
   "Theme": {
     "toggle": "切换主题",

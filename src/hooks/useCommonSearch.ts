@@ -11,12 +11,14 @@ interface CommonCastResult {
     showId: number; // 添加 showId
     roles: Role[];
   }[];
-  totalEpisodes: number;
+  showCount: number;
+  popularity: number;
 }
 
+type SortType ='name' | 'showCount' | 'popularity';
 
 interface FilterOptions {
-  sortOrder: [string, 'asc' | 'desc'];
+  sortOrder: [SortType, 'asc' | 'desc'];
   actorTypes: {
     allActors: boolean;
     mainCast: boolean;
@@ -25,19 +27,30 @@ interface FilterOptions {
   minSeasons: number;
 }
 
-export function useCommonSearch(results?: CommonCastResult[]) {
+
+export function useCommonSearch(results: CommonCastResult[]) {
 
   // 筛选结果优先级大于搜索的结果
-  console.log('results', results)
+  // console.log('results', results)
 
   // 筛选状态，FilterModal引入hook创建了不同的引用
-  const [sortOrder, setSortOrder] = useState<[string, 'asc' | 'desc']>(["episodes",'desc']);
+  const [sortOrder, setSortOrder] = useState<[SortType, 'asc' | 'desc']>(["showCount",'desc']);
   const [actorTypes, setActorTypes] = useState({
     allActors: true,
     mainCast: false,
     guestStars: false
   });
   const [minSeasons, setMinSeasons] = useState<number>(1);
+
+  const initialFilterOptions = useRef<FilterOptions>({
+    sortOrder: ["showCount", "desc"],
+    actorTypes: {
+      allActors: true,
+      mainCast: false,
+      guestStars: false
+    },
+    minSeasons: 1
+  })
 
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<CommonCastResult[]>([]);
@@ -88,7 +101,7 @@ export function useCommonSearch(results?: CommonCastResult[]) {
       // 值不变，只改变键
       const tempSortValue = sortOrder[1];
       setSortOrder(
-        [e.target.value, tempSortValue]
+        [e.target.value as SortType, tempSortValue]
       )
     },[sortOrder]),
 
@@ -104,31 +117,63 @@ export function useCommonSearch(results?: CommonCastResult[]) {
 
   // 确认筛选并收集所有筛选选项
   const handleFilterModalSubmit = () => {
+
     const filterOptions: FilterOptions = {
       sortOrder,
       actorTypes,
       minSeasons
     };
 
-    // 打印当前的筛选选择
+    // Print current filter options and results
     console.log('Filter Options:', filterOptions);
-    console.log('current results', results);
+    console.log('Current Results:', results);
 
-    // 这里可以将选项传回父组件进行应用
-    // 例如: onFilterApply(filterOptions);
+    // 1. Compare with initial value, if no change, do not filter
+    if (JSON.stringify(filterOptions) === JSON.stringify(initialFilterOptions.current)) {
+      console.log('No changes in filter options.');
+      return;
+    }
+
+    // update initial value
+    initialFilterOptions.current = filterOptions;
+
+    // 2. If there are changes, filter based on conditions
+    const filteredResults = filterResults(results, filterOptions);
+    setSearchResults(filteredResults);
+    console.log('Filtered Results:', filteredResults);
   };
 
-  /**
-   * 根据人气值排序
-   * @param {results} CommonCastResult[] - 演员列表
-   * @param {sortOrder[1]} "popularity" - 排序键
-   * @param {order} "asc" | "desc" - 排序方式
-   */
+  const filterResults = (results: CommonCastResult[], filterOptions: FilterOptions): CommonCastResult[] => {
+    let filteredResults = results.slice(); // 浅copy一份
+
+    // Filter by actor types
+    // if (!filterOptions.actorTypes.allActors) {
+    //   filteredResults = filteredResults.filter(actor => {
+    //     const mainCast = filterOptions.actorTypes.mainCast && actor.showCount > 1;
+    //     const guestStars = filterOptions.actorTypes.guestStars && actor.showCount === 1;
+    //     return mainCast || guestStars;
+    //   });
+    // }
+
+    // Filter by minimum seasons
+    filteredResults = filteredResults.filter(actor => {
+      return actor.showCount >= filterOptions.minSeasons;
+    });
+
+    // Sort results ✅
+    filteredResults = filteredResults.sort((a, b) => {
+      const [key, order] = filterOptions.sortOrder;
+      if (a[key] < b[key]) return order === "asc" ? -1 : 1;
+      if (a[key] > b[key]) return order === "asc" ? 1 : -1;
+      return 0;
+    });
+
+    return filteredResults;
+  };
+
 
   // Search logic
   useEffect(() => {
-
-    if (!results) return;
 
     if (!searchTerm.trim()) {
       // If search is empty, show all results and clear auto-expansions

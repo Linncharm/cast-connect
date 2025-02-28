@@ -2,9 +2,16 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
+import { LRUCache } from 'lru-cache';
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
+
+const cache = new LRUCache({
+  max: 100,
+  ttl: 3600000, // 1 hour in milliseconds
+});
+
 
 async function fetchTMDB(
   endpoint: string,
@@ -22,6 +29,17 @@ async function fetchTMDB(
   //   },
   // });
 
+  const cacheKey = url.href;
+
+  // Check if we have a cached response
+  const cachedData = cache.get(cacheKey);
+  if (cachedData) {
+    console.log('Cache hit for:', cacheKey);
+    return cachedData
+  }
+
+  console.log('Cache miss for:', cacheKey);
+
   const response = await axios({
     url: url.href,
     method: 'GET',
@@ -32,6 +50,8 @@ async function fetchTMDB(
     timeout: 10000,
   });
 
+  // Store the response in cache
+  cache.set(cacheKey, response.data);
 
   return response.data;
 }
@@ -48,11 +68,27 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  try {
-    // 移除endpoint参数，只传递其他参数到TMDB
+  // Add custom header to indicate cache status (for debugging/monitoring)
+  const paramsURL = new URL(`${TMDB_BASE_URL}${endpoint}`);
+  if (searchParams) {
     searchParams.delete('endpoint');
+    searchParams.forEach((value, key) => paramsURL.searchParams.append(key, value));
+  }
+
+  try {
+
+    const isCached = cache.has(paramsURL.href);
     const data = await fetchTMDB(endpoint, searchParams);
-    return NextResponse.json(data);
+    const response = NextResponse.json(data, { status: 200 });
+
+    // Add cache-control header
+    response.headers.set('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=86400');
+
+
+    response.headers.set('X-Cache-Status', isCached ? 'HIT' : 'MISS');
+
+    return response;
+
   } catch (error) {
     console.error('TMDB API Error:', error);
     return NextResponse.json(
