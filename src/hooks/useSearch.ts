@@ -18,7 +18,8 @@ interface TVShow {
 
 export function useSearch() {
 
-  const savedHistory: SearchHistory[] = JSON.parse(localStorage.getItem('tvSearchHistory') as string);
+
+  const savedHistory: SearchHistory[] = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('tvSearchHistory') || '[]') : [];
 
   const currentLocale = useLocale();
   const [searchTerm, setSearchTerm] = useState('');
