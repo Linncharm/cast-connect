@@ -30,18 +30,33 @@ export function CommonCastResults({
 
   return (
     <div className="mt-8">
-      <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white transition-colors duration-200">
+      <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white   " style={{ gridTemplateRows: 'auto' }}>
         {t('title')}
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {results.map(actor => (
-          <ActorCard
-            key={actor.id}
-            actor={actor}
-            isExpanded={expandedActors.has(actor.id)}
-            onExpand={() => onActorExpand(actor.id)}
-          />
-        ))}
+      <div className="flex flex-col md:flex-row gap-4">
+        {/* 左列 */}
+        <div className="flex-1 flex flex-col gap-4">
+          {results.filter((_, index) => index % 2 === 0).map(actor => (
+            <ActorCard
+              key={actor.id}
+              actor={actor}
+              isExpanded={expandedActors.has(actor.id)}
+              onExpand={() => onActorExpand(actor.id)}
+            />
+          ))}
+        </div>
+
+        {/* 右列 */}
+        <div className="flex-1 flex flex-col gap-4">
+          {results.filter((_, index) => index % 2 === 1).map(actor => (
+            <ActorCard
+              key={actor.id}
+              actor={actor}
+              isExpanded={expandedActors.has(actor.id)}
+              onExpand={() => onActorExpand(actor.id)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

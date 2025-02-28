@@ -10,7 +10,7 @@ const NavBar = () => {
   const t = useTranslations('nav');
 
   return (
-    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 transition-colors duration-200">
+    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-6xl mx-auto px-8 py-4">
         <div className="flex items-center justify-between">
           {/* 左侧 Logo 和网站名称 */}

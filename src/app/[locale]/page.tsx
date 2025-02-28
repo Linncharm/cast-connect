@@ -109,7 +109,7 @@ export default function Home() {
       disabled:text-gray-500 dark:disabled:text-gray-400
       text-white
       rounded-lg font-medium
-      transition-colors duration-200"
+       "
           >
             {t('analyze')}
           </button>
@@ -117,7 +117,7 @@ export default function Home() {
       </div>
 
       {/* 已选剧集容器 */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-4 min-h-[200px] max-h-[400px] overflow-y-auto border border-gray-200 dark:border-gray-700 transition-colors duration-200">
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-4 min-h-[200px] max-h-[400px] overflow-y-auto border border-gray-200 dark:border-gray-700  ">
         <SelectedShowsList
           shows={selectedShows}
           onRemoveShow={handleRemoveShow}

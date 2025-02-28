@@ -5,10 +5,10 @@ export function Header() {
 
   return (
     <header className="text-center">
-      <h1 className="text-4xl font-bold mb-2 text-gray-900 dark:text-white transition-colors duration-200">
+      <h1 className="text-4xl font-bold mb-2 text-gray-900 dark:text-white  ">
         {t('title')}
       </h1>
-      <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors duration-200">
+      <p className="text-xl text-gray-600 dark:text-gray-300  ">
         {t('description')}
       </p>
     </header>

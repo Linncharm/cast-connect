@@ -32,17 +32,17 @@ export function SearchHistoryList({
     shadow-lg dark:shadow-xl
     z-10 overflow-hidden
     custom-scrollbar
-    transition-colors duration-200"
+     "
     >
       <div
         className="p-2
       border-b border-gray-200 dark:border-gray-700
-      transition-colors duration-200"
+       "
       >
         <span
           className="text-sm
         text-gray-500 dark:text-gray-400
-        transition-colors duration-200"
+         "
         >
           {t('latestResearched')}
         </span>

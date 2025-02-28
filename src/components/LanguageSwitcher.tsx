@@ -56,7 +56,7 @@ export default function LanguageSwitcher() {
       >
         <span>{t('locale', { locale: currentLocale })}</span>
         <svg
-          className={`w-4 h-4 transition-transform duration-200 ${
+          className={`w-4 h-4 transition-transform duration-300 ${
             isOpen ? 'rotate-180' : ''
           }`}
           fill="none"

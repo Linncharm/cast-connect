@@ -24,7 +24,7 @@ const SearchResultsDropdown: React.FC<SearchResultsDropdownProps> = props => {
       shadow-lg dark:shadow-xl
       z-10 max-h-[400px]
       overflow-y-auto custom-scrollbar
-      transition-colors duration-200"
+       "
     >
       <div className="relative">
         {isLoading && (
@@ -33,7 +33,7 @@ const SearchResultsDropdown: React.FC<SearchResultsDropdownProps> = props => {
             bg-white/75 dark:bg-gray-800/75
             flex items-center justify-center z-50
             backdrop-blur-sm
-            transition-colors duration-200"
+             "
           >
             <div className="text-gray-500 dark:text-gray-400 text-sm py-4">
               {t('searching')}

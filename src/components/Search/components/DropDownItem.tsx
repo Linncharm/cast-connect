@@ -25,7 +25,7 @@ const DropDownItem: React.FC<DropDownItemProps> = props => {
       className="p-3
         hover:bg-gray-100 dark:hover:bg-gray-700
         cursor-pointer
-        transition-colors duration-200"
+         "
     >
       <div className="flex items-center gap-4">
         {index < 3 && (
@@ -41,14 +41,14 @@ const DropDownItem: React.FC<DropDownItemProps> = props => {
             className="font-medium
             text-gray-900 dark:text-white
             truncate
-            transition-colors duration-200"
+             "
           >
             {show.name}
           </div>
           <div
             className="text-sm
             text-gray-500 dark:text-gray-400
-            transition-colors duration-200"
+             "
           >
             {show.first_air_date?.split('-')[0] || '未知年份'}
           </div>
@@ -57,7 +57,7 @@ const DropDownItem: React.FC<DropDownItemProps> = props => {
               className="text-sm
                 text-gray-500 dark:text-gray-400
                 line-clamp-1 mt-1 cursor-help
-                transition-colors duration-200"
+                 "
               title={show.overview}
             >
               {show.overview}

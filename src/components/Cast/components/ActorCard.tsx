@@ -99,13 +99,13 @@ const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
 
         {/* 演员信息 */}
         <div className="flex-1">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white transition-colors duration-200">
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white  ">
             {actor.name}
           </h3>
-          <p className="text-gray-500 dark:text-gray-400 transition-colors duration-200">
+          <p className="text-gray-500 dark:text-gray-400  ">
             {t('showInCast', { count: actor.showAppearances.length })}
           </p>
-          <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-200">
+          <p className="text-gray-500 dark:text-gray-400 text-sm  ">
             {actor.showAppearances.map(show => show.showName).join('、')}
           </p>
         </div>
@@ -139,7 +139,7 @@ const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
           <div className="border-t border-gray-200 dark:border-gray-600 divide-y divide-gray-200 dark:divide-gray-600">
             {actor.showAppearances.map(appearance => (
               <div key={appearance.showName} className="p-4">
-                <h4 className="font-semibold mb-3 text-gray-900 dark:text-white transition-colors duration-200">
+                <h4 className="font-semibold mb-3 text-gray-900 dark:text-white  ">
                   {appearance.showName}
                 </h4>
                 <div className="space-y-3">
@@ -184,10 +184,10 @@ const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
                         </div>
 
                         <div className="flex-1">
-                          <p className="font-medium text-gray-900 dark:text-white transition-colors duration-200">
+                          <p className="font-medium text-gray-900 dark:text-white  ">
                             {role.character}
                           </p>
-                          <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-200">
+                          <p className="text-sm text-gray-500 dark:text-gray-400  ">
                             {t('showInEpisode', { count: actor.totalEpisodes })}
                           </p>
                         </div>

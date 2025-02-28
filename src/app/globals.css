@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    @apply transition-colors duration-300;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

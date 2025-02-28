@@ -24,7 +24,7 @@ const SelectedShowCard: React.FC<SelectedShowCard> = props => {
       className="bg-gray-50 dark:bg-gray-700
         rounded-lg p-3 relative group
         border border-gray-200 dark:border-gray-600
-        transition-colors duration-200"
+         "
     >
       <button
         onClick={onRemove}
@@ -33,7 +33,7 @@ const SelectedShowCard: React.FC<SelectedShowCard> = props => {
           bg-red-500 hover:bg-red-600
           text-white
           opacity-0 group-hover:opacity-100
-          transition-all duration-200
+          transition-all duration-300
           focus:outline-none focus:ring-2 focus:ring-red-500/50"
         aria-label={`移除 ${show.name}`}
       >
@@ -47,10 +47,10 @@ const SelectedShowCard: React.FC<SelectedShowCard> = props => {
           loading="lazy"
         />
         <div>
-          <div className="font-medium text-gray-900 dark:text-white transition-colors duration-200">
+          <div className="font-medium text-gray-900 dark:text-white  ">
             {show.name}
           </div>
-          <div className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-200">
+          <div className="text-sm text-gray-500 dark:text-gray-400  ">
             {show.first_air_date?.split('-')[0] || '未知年份'}
           </div>
         </div>

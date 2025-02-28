@@ -18,7 +18,17 @@ const config: Config = {
     },
   },
   plugins: [
-    require('@tailwindcss/line-clamp'),
+    function({ addBase }) {
+      addBase({
+        // 为所有颜色相关的类添加过渡效果
+        '*, ::before, ::after': {
+          '--tw-transition-duration': '300ms',
+          'transition-property': 'color, background-color, border-color, text-decoration-color, fill, stroke',
+          'transition-timing-function': 'cubic-bezier(0.4, 0, 0.2, 1)',
+          'transition-duration': 'var(--tw-transition-duration)',
+        },
+      });
+    },
   ],
 }
 export default config

@@ -12,7 +12,7 @@ const Footer = () => {
       className="bg-gray-50 dark:bg-gray-900
       border-t border-gray-200 dark:border-gray-800
       py-8
-      transition-colors duration-200"
+       "
     >
       <div className="max-w-2xl mx-auto px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-32">
@@ -21,13 +21,13 @@ const Footer = () => {
             <h3
               className="text-lg font-semibold mb-4
               text-gray-900 dark:text-white
-              transition-colors duration-200"
+               "
             >
               {t('footer.about.title')}
             </h3>
             <p
               className="text-gray-600 dark:text-gray-400
-              transition-colors duration-200"
+               "
             >
               {t('footer.about.description')}
             </p>
@@ -38,7 +38,7 @@ const Footer = () => {
             <h3
               className="text-lg font-semibold mb-4
               text-gray-900 dark:text-white
-              transition-colors duration-200"
+               "
             >
               {t('footer.quickLinks.title')}
             </h3>
@@ -48,7 +48,7 @@ const Footer = () => {
                   href="/"
                   className="text-gray-600 dark:text-gray-400
                     hover:text-gray-900 dark:hover:text-white
-                    transition-colors duration-200"
+                     "
                 >
                   {t('footer.quickLinks.home')}
                 </Link>
@@ -58,7 +58,7 @@ const Footer = () => {
                   href="/about"
                   className="text-gray-600 dark:text-gray-400
                     hover:text-gray-900 dark:hover:text-white
-                    transition-colors duration-200"
+                     "
                 >
                   {t('footer.quickLinks.about')}
                 </Link>
@@ -68,7 +68,7 @@ const Footer = () => {
                   href="/contact"
                   className="text-gray-600 dark:text-gray-400
                     hover:text-gray-900 dark:hover:text-white
-                    transition-colors duration-200"
+                     "
                 >
                   {t('footer.quickLinks.contact')}
                 </Link>
@@ -81,26 +81,38 @@ const Footer = () => {
             <h3
               className="text-lg font-semibold mb-4
               text-gray-900 dark:text-white
-              transition-colors duration-200"
+               "
             >
               {t('footer.contact.title')}
             </h3>
             <ul
               className="space-y-2 text-gray-600 dark:text-gray-400
-              transition-colors duration-200"
+               "
             >
+              {t('footer.contact.email')}
               <li>
-                {t('footer.contact.email')}
-                <span>{t('footer.contact.emailUrl')}</span>
+                <Link
+                  href="https://gmail.com"
+                  className="text-gray-600 dark:text-gray-400
+                    hover:text-gray-900 dark:hover:text-white
+                     "
+                >
+                  {t('footer.contact.emailUrl')}
+                </Link>
               </li>
+            </ul>
+            <ul
+              className="space-y-2 text-gray-600 dark:text-gray-400
+               "
+            >
+              {t('footer.contact.github')}
               <li>
-                {t('footer.contact.github')}
                 <Link
                   href="https://github.com/Linncharm"
                   target={'_blank'}
                   className="text-gray-600 dark:text-gray-400
                     hover:text-gray-900 dark:hover:text-white
-                    transition-colors duration-200"
+                     "
                 >
                   {t('footer.contact.githubUrl')}
                 </Link>

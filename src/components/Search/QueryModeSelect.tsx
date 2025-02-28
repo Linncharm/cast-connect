@@ -23,7 +23,7 @@ export function QueryModeSelect({ value, onChange }: QueryModeSelectProps) {
           focus:outline-none
           focus:border-blue-500 dark:focus:border-blue-500
           focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-500/20
-          transition-colors duration-200"
+           "
         aria-label="查询模式"
       >
         <option
