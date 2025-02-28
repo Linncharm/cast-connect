@@ -59,7 +59,6 @@ export function useCastAnalysis() {
 
       // 找出共同演员
       const commonCast = findCommonCast(showsCastInfo, queryMode);
-      console.log('Common cast:', commonCast);
 
       // 按出演集数总和排序,在集数相等的情况下按人气排序
       commonCast.sort((a, b) => {

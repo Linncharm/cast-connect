@@ -39,8 +39,6 @@ class TMDBService {
         credentials: 'same-origin'
       });
 
-      console.log('response', response);
-
       const data = await response.json();
 
       if (!response.ok) {

@@ -5,11 +5,13 @@ import TMDBService from '@/services/tmdb';
 import { Role } from '@/types';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import HighlightText from '@/components/Cast/components/HighlightText';
 
 interface ActorCardProps {
   actor: CommonCastResult;
   isExpanded: boolean;
   onExpand: () => void;
+  searchTerm: string;
 }
 
 interface CommonCastResult {
@@ -29,8 +31,10 @@ interface RoleImage {
   error?: boolean;
 }
 
+
+
 const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
-  const { actor, isExpanded, onExpand } = props;
+  const { actor, isExpanded, onExpand, searchTerm } = props;
   const t = useTranslations('CommonCastResults');
 
   // 角色图片状态管理
@@ -51,7 +55,7 @@ const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
       // const data = await response.json();
 
       // 模拟API调用
-      console.log('Fetching role image:', appearance.showId, role.credit_id);
+      // console.log('Fetching role image:', appearance.showId, role.credit_id);
       const mockImage = { still_path: null };
 
       setRolesWithImages(prev => new Map(prev).set(cacheKey, mockImage));
@@ -78,14 +82,14 @@ const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
         border border-gray-200 dark:border-gray-600
         transition-all duration-300"
     >
-      {/* 折叠头部 */}
+      {/* Collapsed header */}
       <div
         onClick={onExpand}
         className="p-4 flex items-center gap-4 cursor-pointer
           hover:bg-gray-100 dark:hover:bg-gray-600
           transition-colors"
       >
-        {/* 演员头像 */}
+        {/* Actor avatar */}
         <div className="w-16 h-16 rounded-full overflow-hidden">
           <Image
             src={TMDBService.getImageUrl(actor.profile_path, 'w92')}
@@ -97,20 +101,25 @@ const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
           />
         </div>
 
-        {/* 演员信息 */}
+        {/* Actor info */}
         <div className="flex-1">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white  ">
-            {actor.name}
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+            <HighlightText text={actor.name} searchTerm={searchTerm} />
           </h3>
-          <p className="text-gray-500 dark:text-gray-400  ">
+          <p className="text-gray-500 dark:text-gray-400">
             {t('showInCast', { count: actor.showAppearances.length })}
           </p>
-          <p className="text-gray-500 dark:text-gray-400 text-sm  ">
-            {actor.showAppearances.map(show => show.showName).join('、')}
+          <p className="text-gray-500 dark:text-gray-400 text-sm">
+            {actor.showAppearances.map((show, index) => (
+              <React.Fragment key={show.showId}>
+                {index > 0 && "、"}
+                <HighlightText text={show.showName} searchTerm={searchTerm} />
+              </React.Fragment>
+            ))}
           </p>
         </div>
 
-        {/* 展开/折叠图标 */}
+        {/* Expand/collapse icon */}
         <svg
           className={`w-6 h-6 text-gray-400 dark:text-gray-400 transform transition-transform duration-300 ${
             isExpanded ? 'rotate-180' : ''
@@ -128,7 +137,7 @@ const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
         </svg>
       </div>
 
-      {/* 展开的详细信息 - 使用Grid实现平滑过渡 */}
+      {/* Expanded details - using Grid for smooth transition */}
       <div
         className={`
           grid transition-[grid-template-rows] duration-300 ease-in-out
@@ -139,8 +148,8 @@ const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
           <div className="border-t border-gray-200 dark:border-gray-600 divide-y divide-gray-200 dark:divide-gray-600">
             {actor.showAppearances.map(appearance => (
               <div key={appearance.showName} className="p-4">
-                <h4 className="font-semibold mb-3 text-gray-900 dark:text-white  ">
-                  {appearance.showName}
+                <h4 className="font-semibold mb-3 text-gray-900 dark:text-white">
+                  <HighlightText text={appearance.showName} searchTerm={searchTerm} />
                 </h4>
                 <div className="space-y-3">
                   {appearance.roles.map(role => {
@@ -148,7 +157,7 @@ const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
                     const roleWithImage = rolesWithImages.get(cacheKey);
                     const isLoading = loadingRoles.has(cacheKey);
 
-                    // 当展开时加载图片
+                    // Load image when expanded
                     useEffect(() => {
                       if (isExpanded) {
                         loadRoleImage(appearance, role);
@@ -160,34 +169,16 @@ const ActorCard: React.FC<ActorCardProps> = React.memo(props => {
                         key={role.credit_id}
                         className="flex items-center gap-4"
                       >
-                        {/* 角色图片或加载状态 */}
+                        {/* Role image or loading state */}
                         <div className="w-16 h-16 rounded overflow-hidden flex-shrink-0">
-                          {/*{isLoading ? (*/}
-                            <div className="w-full h-full bg-gray-100 dark:bg-gray-800 animate-pulse" />
-                          {/*) : roleWithImage?.still_path ? (*/}
-                          {/*  <Image*/}
-                          {/*    src={TMDBService.getImageUrl(roleWithImage.still_path, 'w92')}*/}
-                          {/*    alt={`${role.character} 剧照`}*/}
-                          {/*    width={64}*/}
-                          {/*    height={64}*/}
-                          {/*    className="w-full h-full object-cover"*/}
-                          {/*    loading="lazy"*/}
-                          {/*    onError={() => handleImageError(cacheKey)}*/}
-                          {/*  />*/}
-                          {/*) : (*/}
-                          {/*  <div className="w-full h-full bg-gray-800 flex items-center justify-center">*/}
-                          {/*    <span className="text-gray-600 text-sm">*/}
-                          {/*      {roleWithImage?.error ? '加载失败' : '无图片'}*/}
-                          {/*    </span>*/}
-                          {/*  </div>*/}
-                          {/*)}*/}
+                          <div className="w-full h-full bg-gray-100 dark:bg-gray-800 animate-pulse" />
                         </div>
 
                         <div className="flex-1">
-                          <p className="font-medium text-gray-900 dark:text-white  ">
-                            {role.character}
+                          <p className="font-medium text-gray-900 dark:text-white">
+                            <HighlightText text={role.character} searchTerm={searchTerm} />
                           </p>
-                          <p className="text-sm text-gray-500 dark:text-gray-400  ">
+                          <p className="text-sm text-gray-500 dark:text-gray-400">
                             {t('showInEpisode', { count: actor.totalEpisodes })}
                           </p>
                         </div>
