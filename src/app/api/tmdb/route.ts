@@ -77,14 +77,14 @@ export async function GET(request: NextRequest) {
 
   try {
 
-    const isCached = cache.has(paramsURL.href);
     const data = await fetchTMDB(endpoint, searchParams);
     const response = NextResponse.json(data, { status: 200 });
 
     // Add cache-control header
     response.headers.set('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=86400');
 
-
+    // TODO need to be fixed, always return HIT
+    const isCached = cache.has(paramsURL.href);
     response.headers.set('X-Cache-Status', isCached ? 'HIT' : 'MISS');
 
     return response;

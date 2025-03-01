@@ -15,7 +15,8 @@ interface CommonCastResult {
     showId: number; // 添加 showId
     roles: Role[];
   }[];
-  totalEpisodes: number;
+  showCount: number;
+  popularity: number;
 }
 
 interface CommonCastResultsProps {
