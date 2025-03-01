@@ -6,24 +6,13 @@ import { Role } from '@/types';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import HighlightText from '@/components/Cast/components/HighlightText';
+import { CommonCastResult } from '@/types';
 
 interface ActorCardProps {
   actor: CommonCastResult;
   isExpanded: boolean;
   onExpand: () => void;
   searchTerm: string;
-}
-
-interface CommonCastResult {
-  id: number;
-  name: string;
-  profile_path: string | null;
-  showAppearances: {
-    showName: string;
-    showId: number;
-    roles: Role[];
-  }[];
-  totalEpisodes: number;
 }
 
 interface RoleImage {

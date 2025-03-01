@@ -1,19 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Role } from '@/types';
 import { FilterHandlers } from '@/components/Cast/types';
-
-interface CommonCastResult {
-  id: number;
-  name: string;
-  profile_path: string | null;
-  showAppearances: {
-    showName: string;
-    showId: number; // 添加 showId
-    roles: Role[];
-  }[];
-  showCount: number;
-  popularity: number;
-}
+import { CommonCastResult } from '@/types';
 
 type SortType ='name' | 'showCount' | 'popularity';
 

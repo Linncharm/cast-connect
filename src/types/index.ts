@@ -27,7 +27,8 @@ export interface CommonCastResult {
   name: string;
   profile_path: string | null;
   showAppearances: ShowAppearance[];
-  totalEpisodes: number;
+  showCount: number;
+  popularity: number;
 }
 
 export interface ShowAppearance {

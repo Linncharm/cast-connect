@@ -4,20 +4,7 @@ import { useTranslations } from 'next-intl';
 import React, { useEffect, useMemo, useState } from 'react';
 import CommonCastSearch from '@/components/Cast/components/CommonCastSearch';
 import { useCommonSearch } from '@/hooks/useCommonSearch';
-
-
-interface CommonCastResult {
-  id: number;
-  name: string;
-  profile_path: string | null;
-  showAppearances: {
-    showName: string;
-    showId: number; // 添加 showId
-    roles: Role[];
-  }[];
-  showCount: number;
-  popularity: number;
-}
+import { CommonCastResult } from '@/types';
 
 interface CommonCastResultsProps {
   results: CommonCastResult[];
