@@ -27,6 +27,7 @@ export function HowToUseSection() {
 
           {/* Steps Grid */}
           <div className="grid grid-cols-1 p-4 md:grid-cols-3 gap-16">
+            {/*TODO - Add the dark mode images*/}
             {/* Step 1 */}
             <div>
               <div className="bg-gray-100 dark:bg-gray-700 rounded-lg mb-6 overflow-hidden">

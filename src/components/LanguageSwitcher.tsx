@@ -75,7 +75,7 @@ export default function LanguageSwitcher() {
 
       {isOpen && (
         <div
-          className="absolute right-0 mt-2 py-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg dark:shadow-xl z-50 border border-gray-200 dark:border-gray-700"
+          className="absolute left-[120%] top-[120%] transform -translate-x-1/2 mt-2 py-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg dark:shadow-xl border border-gray-200 dark:border-gray-700 md:left-auto md:right-0 md:transform-none"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="language-menu"

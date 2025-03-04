@@ -15,6 +15,7 @@
     "home": "Home",
     "about": "About",
     "language": "Language",
+    "theme": "Theme",
     "contact": "Contact Me"
   },
   "meta": {
@@ -155,7 +156,7 @@
     },
     "step3": {
       "title": "3. Analyze Cast Connections",
-      "point1": "Choose between 'Intersection' or 'Union' mode for your analysis",
+      "point1": "Choose between 'Strict' or 'Fuzzy' mode for your analysis",
       "point2": "Click the 'Analyze' button to process your selection",
       "point3": "View detailed results showing common actors across your shows",
       "point4": "Expand any actor's entry to see which specific shows they appeared in"
