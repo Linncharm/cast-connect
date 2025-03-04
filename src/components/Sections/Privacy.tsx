@@ -27,7 +27,7 @@ export function PrivacySection() {
   return (
     <section id="privacy" className="py-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl font-bold mb-6 text-center">{t('heading')}</h2>
+        <h2 className="text-3xl font-bold text-center mb-4">{t('heading')}</h2>
 
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md border border-gray-200 dark:border-gray-700">
           <p className="text-center mb-6 text-gray-600 dark:text-gray-300">

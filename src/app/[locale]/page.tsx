@@ -18,6 +18,7 @@ import { HowToUseSection } from '@/components/Sections/HowToUse';
 import { WhyChooseSection } from '@/components/Sections/WhyChoose';
 import { FAQSection } from '@/components/Sections/FAQ';
 import { PrivacySection } from '@/components/Sections/Privacy';
+import { CommentSection } from '@/components/Sections/Comment';
 
 export default function Home() {
   const t = useTranslations('Analysis');
@@ -142,6 +143,8 @@ export default function Home() {
       <HowToUseSection />
       {/*Why Choose This*/}
       <WhyChooseSection />
+      {/*Comment*/}
+      <CommentSection />
       {/*FAQ*/}
       <FAQSection />
       {/*Privacy Protection*/}

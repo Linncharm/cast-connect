@@ -25,9 +25,9 @@ export function WhyChooseSection() {
   ];
 
   return (
-    <section id="why-choose" className="py-8 bg-gray-100 dark:bg-gray-850 rounded-lg">
+    <section id="why-choose" className="py-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl font-bold mb-6 text-center">{t('heading')}</h2>
+        <h2 className="text-3xl font-bold mb-4 text-center">{t('heading')}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {reasons.map((reason, index) => (

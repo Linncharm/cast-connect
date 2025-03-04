@@ -11,7 +11,7 @@ export function HowToUseSection() {
     <section id="how-to-use" className="py-12">
       <div className="max-w-6xl mx-auto">
 
-        <h1 className="text-4xl font-bold mb-4 text-center">{t('heading')}</h1>
+        <h1 className="text-3xl font-bold mb-4 text-center">{t('heading')}</h1>
         <h2 className="max-w-3xl m-auto text-gray-600 mb-6 text-center">{t('subheading')}</h2>
 
         <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-4">

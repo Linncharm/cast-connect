@@ -11,7 +11,7 @@
     }
   },
   "nav": {
-    "title": "Show Connection Query",
+    "title": "Role Bridge Explorer",
     "home": "Home",
     "about": "About",
     "language": "Language",
@@ -19,17 +19,17 @@
     "contact": "Contact Me"
   },
   "meta": {
-    "title": "Show Connection Query System",
-    "description": "Discover actor connections between different TV shows"
+    "title": "Role Bridge Explorer",
+    "description": "Explore the bridge connecting actors across TV shows and discover hidden connections between your favorite shows"
   },
   "header": {
-    "title": "Show Connection Query",
-    "description": "Discover actor connections between different TV shows"
+    "title": "Role Bridge Explorer",
+    "description": "Explore the bridge connecting actors across TV shows and discover hidden connections between your favorite shows"
   },
   "footer": {
     "about": {
       "title": "About Me",
-      "description": "The Show Connection Query System helps you discover actor connections between different TV shows."
+      "description": "Explore the bridge connecting actors across TV shows and discover hidden connections between your favorite shows"
     },
     "quickLinks": {
       "title": "Quick Links",
@@ -109,35 +109,34 @@
     }
   },
   "Features": {
-    "heading": "Key Features",
-    "subheading": "Key Features subheading",
+    "heading": "Premium Core Features",
+    "subheading": "Ever wondered if your favorite shows share common actors? This magical tool perfectly satisfies all your exploration desires",
     "search": {
-      "title": "Intelligent Search",
-      "description": "Quickly find any TV show or movie in our extensive database."
+      "title": "Intelligent Media Search",
+      "description": "Deeply integrated with TMDB global database, seamlessly connecting millions of exciting movies and TV shows, effortlessly search any program you're eager to discover"
     },
     "compare": {
-      "title": "Cast Comparison",
-      "description": "Compare casts across multiple shows to discover common actors."
+      "title": "Precise Character Lookup",
+      "description": "Comprehensively compare cast ensembles and character information across various exciting series, presenting the most accurate and complete results after intelligent analysis."
     },
     "fast": {
-      "title": "Lightning Fast",
-      "description": "Get instant results with our optimized search algorithm."
-    },
+      "title": "Lightning-Fast Response",
+      "description": "Utilizing breakthrough optimization algorithms and smart caching strategies, supporting simultaneous searches across up to 30 shows, thoroughly ensuring you experience amazingly fast searches and analysis"    },
     "responsive": {
-      "title": "Fully Responsive",
-      "description": "Perfect experience on any device, from desktop to mobile."
+      "title": "Fully Immersive Responsiveness",
+      "description": "Website meticulously compatible with desktop and mobile devices, carefully ensuring you enjoy the best immersive experience in any scenario"
     },
     "export": {
-      "title": "Export Results",
-      "description": "Export analysis results in multiple formats. Currently supported formats include CSV, PNG, and TXT."
+      "title": "Flexible Results Export",
+      "description": "Export all carefully analyzed results in multiple convenient formats with flexibility. Currently supports csv, png, and txt formats"
     },
     "multiLang": {
-      "title": "Multi-language Support",
-      "description": "Full page multi-language support. Search results and analysis are displayed in your chosen language."
+      "title": "Equipped with Multilingual System",
+      "description": "Fully supports seamless page language switching, all search results and in-depth analysis content will be perfectly presented in your preferred language of choice"
     }
   },
   "HowToUse": {
-    "heading": "How To Use Cast Comparison",
+    "heading": "How To Use Role Bridge Explorer \uD83D\uDD11",
     "subheading": "Find common actors between your favorite TV shows with our simple three-step process.",
     "cardHeading": "Online Search, Real-time Analysis",
     "description": "Our tool uses the latest technologies to ensure you get the best search and analysis experience.",
@@ -163,7 +162,7 @@
     }
   },
   "WhyChoose": {
-    "heading": "Why Choose Our Tool",
+    "heading": "Why Choose Role Bridge Explorer ❤\uFE0F",
     "accuracy": {
       "title": "Accurate Data",
       "description": "Our database is regularly updated with the latest TV show information."
@@ -178,22 +177,38 @@
     }
   },
   "FAQ": {
-    "heading": "Frequently Asked Questions",
+    "heading": "Frequently Asked Questions about Role Bridge Explorer",
     "question1": {
       "question": "How many shows can I compare at once?",
-      "answer": "You can compare up to 10 shows simultaneously. This limit ensures optimal performance and accurate results."
+      "answer": "As many as you like! However, we recommend comparing up to 10 shows at a time to ensure optimal performance and accurate results."
     },
     "question2": {
       "question": "Is this service free to use?",
-      "answer": "Yes, our cast comparison tool is completely free to use with no hidden costs or premium features."
+      "answer": "Yes, this tool is completely free to use with no hidden fees or premium features."
     },
     "question3": {
       "question": "Where does the show data come from?",
-      "answer": "We source our data from public TV show and movie databases that are regularly updated."
+      "answer": "The data on the site comes from regularly updated public TV show and movie databases."
     },
     "question4": {
-      "question": "Can I save my comparison results?",
-      "answer": "Currently, you cannot save results to an account, but you can take screenshots or bookmark specific comparisons."
+      "question": "Can I save the comparison results?",
+      "answer": "Yes! You can export the results in your desired format. Currently supported formats are txt, csv, and png."
+    },
+    "question5": {
+      "question": "Will my search results be uploaded to the cloud?",
+      "answer": "Absolutely not. Your search results are periodically cleared and stored locally to ensure your privacy and security."
+    },
+    "question6": {
+      "question": "Can I use this on mobile devices?",
+      "answer": "Of course! Our website supports all devices, ensuring you have the best immersive experience in any scenario."
+    },
+    "question7": {
+      "question": "Where can I find more help?",
+      "answer": "You can contact me via email, and I will get back to you as soon as possible. The email address is in the footer."
+    },
+    "question8": {
+      "question": "What is the difference between strict mode and fuzzy mode?",
+      "answer": "Strict mode will only search for actors that appear in all selected episodes. Fuzzy mode will search for actors that appear at least twice in any of the selected episodes."
     }
   },
   "Privacy": {
@@ -212,5 +227,47 @@
       "description": "All your search queries are processed securely and not shared with third parties."
     },
     "readFull": "Read Our Full Privacy Policy"
+  },
+  "UserComments": {
+    "heading": "Check Out What Our Users Are Saying",
+    "subheading": "Discover the surprises and joy that Role Bridge Explorer brings to users",
+    "contents": {
+      "one": {
+        "name": "SeriesAddict",
+        "comment": "Role Bridge Explorer has completely changed how I watch TV shows! Yesterday I compared 'Game of Thrones' and 'Vikings', discovering 5 common actors. What a delightful surprise!"
+      },
+      "two": {
+        "name": "ShowHunter",
+        "comment": "The lightning-fast search speed is mind-blowing! I compared 8 crime dramas simultaneously and got all the results in less than 3 seconds. Super efficient!"
+      },
+      "three": {
+        "name": "BingeWatchPro",
+        "comment": "The export feature is incredibly useful! I saved the results in CSV format and organized my personal actor database. This is absolutely essential for any TV enthusiast!"
+      },
+      "four": {
+        "name": "TVEnthusiast",
+        "comment": "The multilingual support is fantastic! I can easily switch between English and Chinese interfaces. As someone who frequently travels abroad, this feature is a lifesaver."
+      },
+      "five": {
+        "name": "DeepObserver",
+        "comment": "The distinction between strict and fuzzy modes allows me to discover different levels of actor connections - a depth of analysis no other tool has ever offered."
+      },
+      "six": {
+        "name": "LazyViewer",
+        "comment": "The experience on mobile is seamless with perfect responsive design. I can explore actor connections while relaxing in bed without needing to use my computer!"
+      },
+      "seven": {
+        "name": "CuriosityMAX",
+        "comment": "I used to recognize actors but couldn't recall their names. Now I just search with this tool and everything becomes clear. It solved my years-long 'where have I seen this actor before' dilemma!"
+      },
+      "eight": {
+        "name": "DataGeek",
+        "comment": "As a data analyst, I really appreciate this tool's accuracy and speed. I analyzed dozens of sci-fi shows and discovered many interesting career path patterns among actors. Fascinating!"
+      },
+      "nine": {
+        "name": "WeekendCinephile",
+        "comment": "Completely free and no personal data collection - that's rare on today's internet. This respect for users really touches me, and I'll continue to support it!"
+      }
+    }
   }
 }
