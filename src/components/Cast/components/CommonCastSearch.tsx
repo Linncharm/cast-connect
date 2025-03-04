@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FilterModal from '@/components/Cast/components/FilterModal';
 import { FilterHandlers } from '@/components/Cast/types';
+import { useTranslations } from 'next-intl';
 
 interface CommonCastSearchProps {
   searchTerm: string;
@@ -17,6 +18,7 @@ interface CommonCastSearchProps {
 
 const CommonCastSearch: React.FC<CommonCastSearchProps> = (props) => {
 
+  const t = useTranslations("Filter")
   const {
     searchTerm,
     setSearchTerm,
@@ -99,7 +101,7 @@ const CommonCastSearch: React.FC<CommonCastSearchProps> = (props) => {
             hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors
             focus:outline-none focus:ring-2 focus:ring-blue-500 text-center"
             >
-              {allExpanded ? '全部收起' : '全部展开'}
+              {allExpanded ? t("collapseAll") : t("expandAll")}
             </button>
 
             {/* Filter Button */}
@@ -110,7 +112,9 @@ const CommonCastSearch: React.FC<CommonCastSearchProps> = (props) => {
                         hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors
                         focus:outline-none focus:ring-2 focus:ring-blue-500 text-center"
             >
-              筛选
+              {
+                t("filterButton")
+              }
             </button>
           </div>
 

@@ -1,6 +1,5 @@
 import { useTranslations } from 'next-intl';
-
-type QueryMode = 'strict' | 'fuzzy';
+import { QueryMode } from '@/types';
 
 interface QueryModeSelectProps {
   value: QueryMode;
@@ -11,30 +10,31 @@ export function QueryModeSelect({ value, onChange }: QueryModeSelectProps) {
   const t = useTranslations('ModeSelect');
 
   return (
-    <div className="relative">
+    <div className="relative w-full sm:w-auto">
       <select
         value={value}
         onChange={e => onChange(e.target.value as QueryMode)}
-        className="appearance-none
+        className="appearance-none w-full
           bg-white dark:bg-gray-800
           border border-gray-200 dark:border-gray-700
           text-gray-900 dark:text-white
           rounded-lg px-4 py-3 pr-8
           focus:outline-none
+          text-center
           focus:border-blue-500 dark:focus:border-blue-500
           focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-500/20
            "
-        aria-label="查询模式"
+        aria-label={t('modeLabel')}
       >
         <option
           value="strict"
-          className="text-gray-900 dark:text-white bg-white dark:bg-gray-800"
+          className="text-gray-900 dark:text-white bg-white dark:bg-gray-800 text-center"
         >
           {t('strict')}
         </option>
         <option
           value="fuzzy"
-          className="text-gray-900 dark:text-white bg-white dark:bg-gray-800"
+          className="text-gray-900 dark:text-white bg-white dark:bg-gray-800 text-center"
         >
           {t('fuzzy')}
         </option>

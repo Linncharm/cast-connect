@@ -52,6 +52,7 @@
     "searching": "搜索中..."
   },
   "ModeSelect": {
+    "modeLabel": "选择模式",
     "title": "选择模式",
     "fuzzy": "模糊查询",
     "strict": "精确查询"
@@ -72,5 +73,143 @@
     "toggle": "切换主题",
     "light": "浅色模式",
     "dark": "深色模式"
+  },
+  "Filter": {
+    "collapseAll": "全部折叠",
+    "expandAll": "全部展开",
+    "filterButton": "筛选"
+  },
+  "FilterModal": {
+    "title": "筛选选项",
+    "sortBy": {
+      "label": "排序方式",
+      "name": "姓名",
+      "showCount": "出场集数",
+      "popularity": "人气值"
+    },
+    "sortOrder": {
+      "label": "排序顺序",
+      "asc": "升序",
+      "desc": "降序"
+    },
+    "actorType": {
+      "label": "演员类型",
+      "allActors": "全部演员",
+      "mainCast": "主演",
+      "guestStars": "客串"
+    },
+    "seasonMinimum": {
+      "label": "出场季数最小值",
+      "unit": "季"
+    },
+    "buttons": {
+      "cancel": "取消",
+      "confirm": "确认"
+    }
+  },
+  "Features": {
+    "heading": "核心功能",
+    "subheading": "你一定会有时候想知道你喜欢的剧集中有没有共同演员，这个工具恰好可以满足你的愿望",
+    "search": {
+      "title": "智能搜索",
+      "description": "快速在我们广泛的数据库中找到任何电视节目或电影。"
+    },
+    "compare": {
+      "title": "演员阵容比较",
+      "description": "比较多个节目的演员阵容，发现共同出演的演员。"
+    },
+    "fast": {
+      "title": "极速响应",
+      "description": "通过我们优化的搜索算法获得即时结果。"
+    },
+    "responsive": {
+      "title": "全面响应式",
+      "description": "在任何设备上都能获得完美体验，从桌面到移动端。"
+    },
+    "export": {
+      "title": "导出结果",
+      "description": "可以将分析出的结果用多种格式导出。目前支持的有csv，png，txt"
+    },
+    "multiLang": {
+      "title": "多语言",
+      "description": "支持页面多语言，搜索结果和分析的结果都用您选择的语言显示"
+    }
+  },
+  "HowToUse": {
+    "heading": "如何使用演员比较工具",
+    "subheading": "演员比较工具是一个简单易用的工具，通过我们简单的三步流程，找出您喜爱电视剧之间的共同演员。",
+    "cardHeading": "实时搜索，在线分析",
+    "description": "我们的工具使用最新的技术，确保您获得最佳的搜索和分析体验。",
+    "step1": {
+      "title": "1. 搜索电视剧",
+      "point1": "在搜索栏中输入任何电视剧的名称",
+      "point2": "浏览出现的自动完成结果",
+      "point3": "轻松找到您要查找的确切节目",
+      "point4": "我们的数据库包含来自世界各地的数千部电视剧"
+    },
+    "step2": {
+      "title": "2. 选择多个节目",
+      "point1": "点击搜索结果中的节目，将它们添加到您的选择中",
+      "point2": "添加任意数量的节目进行比较（至少2个）",
+      "point3": "如果改变主意，可以点击'X'按钮移除任何节目"
+    },
+    "step3": {
+      "title": "3. 分析演员联系",
+      "point1": "为您的分析选择'交集'或'并集'模式",
+      "point2": "点击'分析'按钮处理您的选择",
+      "point3": "查看详细结果，显示您所选节目中的共同演员",
+      "point4": "展开任何演员的条目，查看他们具体出演了哪些节目"
+    }
+  },
+  "WhyChoose": {
+    "heading": "为什么选择我们的工具",
+    "accuracy": {
+      "title": "准确数据",
+      "description": "我们的数据库定期更新，包含最新的电视节目信息。"
+    },
+    "privacy": {
+      "title": "注重隐私",
+      "description": "我们不会跟踪您的搜索或存储个人信息。"
+    },
+    "performance": {
+      "title": "高性能",
+      "description": "使用现代技术构建，确保最佳速度和可靠性。"
+    }
+  },
+  "FAQ": {
+    "heading": "常见问题",
+    "question1": {
+      "question": "我一次可以比较多少个节目？",
+      "answer": "您一次最多可以比较10个节目。这个限制确保了最佳性能和准确结果。"
+    },
+    "question2": {
+      "question": "这项服务是免费使用的吗？",
+      "answer": "是的，我们的演员比较工具完全免费使用，没有隐藏费用或高级功能。"
+    },
+    "question3": {
+      "question": "节目数据来自哪里？",
+      "answer": "我们的数据来自定期更新的公共电视节目和电影数据库。"
+    },
+    "question4": {
+      "question": "我可以保存比较结果吗？",
+      "answer": "目前，您无法将结果保存到账户中，但您可以截屏或为特定比较添加书签。"
+    }
+  },
+  "Privacy": {
+    "heading": "隐私保护",
+    "intro": "您的隐私是我们的首要任务。以下是我们在您使用服务时如何保护您的数据：",
+    "dataProtection": {
+      "title": "不收集数据",
+      "description": "我们不会收集或存储任何超出应用程序功能所需的个人数据。"
+    },
+    "noTracking": {
+      "title": "无跟踪",
+      "description": "我们不使用cookie或跟踪技术来监控您在我们网站上的行为。"
+    },
+    "secure": {
+      "title": "安全搜索",
+      "description": "您的所有搜索查询都会被安全处理，不会共享给第三方。"
+    },
+    "readFull": "阅读我们的完整隐私政策"
   }
 }

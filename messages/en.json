@@ -52,6 +52,7 @@
     "searching": "Searching..."
   },
   "ModeSelect": {
+    "modeLabel": "Select Mode",
     "title": "Select Mode",
     "fuzzy": "Fuzzy Search",
     "strict": "Precise Search"
@@ -72,5 +73,143 @@
     "toggle": "Toggle theme",
     "light": "Light mode",
     "dark": "Dark mode"
+  },
+  "Filter": {
+    "collapseAll": "Collapse All",
+    "expandAll": "Expand All",
+    "filterButton": "Filter"
+  },
+  "FilterModal": {
+    "title": "Filter Options",
+    "sortBy": {
+      "label": "Sort By",
+      "name": "Name",
+      "showCount": "Show in Episodes",
+      "popularity": "Popularity"
+    },
+    "sortOrder": {
+      "label": "Sort Order",
+      "asc": "Ascending",
+      "desc": "Descending"
+    },
+    "actorType": {
+      "label": "Actor Type",
+      "allActors": "All Actors",
+      "mainCast": "Main Cast",
+      "guestStars": "Guest Stars"
+    },
+    "seasonMinimum": {
+      "label": "Minimum Seasons Appeared",
+      "unit": "seasons"
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    }
+  },
+  "Features": {
+    "heading": "Key Features",
+    "subheading": "Key Features subheading",
+    "search": {
+      "title": "Intelligent Search",
+      "description": "Quickly find any TV show or movie in our extensive database."
+    },
+    "compare": {
+      "title": "Cast Comparison",
+      "description": "Compare casts across multiple shows to discover common actors."
+    },
+    "fast": {
+      "title": "Lightning Fast",
+      "description": "Get instant results with our optimized search algorithm."
+    },
+    "responsive": {
+      "title": "Fully Responsive",
+      "description": "Perfect experience on any device, from desktop to mobile."
+    },
+    "export": {
+      "title": "Export Results",
+      "description": "Export analysis results in multiple formats. Currently supported formats include CSV, PNG, and TXT."
+    },
+    "multiLang": {
+      "title": "Multi-language Support",
+      "description": "Full page multi-language support. Search results and analysis are displayed in your chosen language."
+    }
+  },
+  "HowToUse": {
+    "heading": "How To Use Cast Comparison",
+    "subheading": "Find common actors between your favorite TV shows with our simple three-step process.",
+    "cardHeading": "Online Search, Real-time Analysis",
+    "description": "Our tool uses the latest technologies to ensure you get the best search and analysis experience.",
+    "step1": {
+      "title": "1. Search for TV Shows",
+      "point1": "Enter the name of any TV show in the search bar",
+      "point2": "Browse through the autocomplete results that appear",
+      "point3": "Find the exact show you're looking for with minimum effort",
+      "point4": "Our database includes thousands of TV series from around the world"
+    },
+    "step2": {
+      "title": "2. Select Multiple Shows",
+      "point1": "Click on shows in the search results to add them to your selection",
+      "point2": "Add as many shows as you want to compare (minimum of 2)",
+      "point3": "Remove any show by clicking the 'X' button if you change your mind"
+    },
+    "step3": {
+      "title": "3. Analyze Cast Connections",
+      "point1": "Choose between 'Intersection' or 'Union' mode for your analysis",
+      "point2": "Click the 'Analyze' button to process your selection",
+      "point3": "View detailed results showing common actors across your shows",
+      "point4": "Expand any actor's entry to see which specific shows they appeared in"
+    }
+  },
+  "WhyChoose": {
+    "heading": "Why Choose Our Tool",
+    "accuracy": {
+      "title": "Accurate Data",
+      "description": "Our database is regularly updated with the latest TV show information."
+    },
+    "privacy": {
+      "title": "Privacy-Focused",
+      "description": "We don't track your searches or store personal information."
+    },
+    "performance": {
+      "title": "High Performance",
+      "description": "Built with modern technologies for optimal speed and reliability."
+    }
+  },
+  "FAQ": {
+    "heading": "Frequently Asked Questions",
+    "question1": {
+      "question": "How many shows can I compare at once?",
+      "answer": "You can compare up to 10 shows simultaneously. This limit ensures optimal performance and accurate results."
+    },
+    "question2": {
+      "question": "Is this service free to use?",
+      "answer": "Yes, our cast comparison tool is completely free to use with no hidden costs or premium features."
+    },
+    "question3": {
+      "question": "Where does the show data come from?",
+      "answer": "We source our data from public TV show and movie databases that are regularly updated."
+    },
+    "question4": {
+      "question": "Can I save my comparison results?",
+      "answer": "Currently, you cannot save results to an account, but you can take screenshots or bookmark specific comparisons."
+    }
+  },
+  "Privacy": {
+    "heading": "Privacy Protection",
+    "intro": "Your privacy is our top priority. Here's how we protect your data when using our service:",
+    "dataProtection": {
+      "title": "No Data Collection",
+      "description": "We don't collect or store any personal data beyond what's necessary for the app to function."
+    },
+    "noTracking": {
+      "title": "No Tracking",
+      "description": "We don't use cookies or tracking technologies to monitor your behavior on our site."
+    },
+    "secure": {
+      "title": "Secure Searches",
+      "description": "All your search queries are processed securely and not shared with third parties."
+    },
+    "readFull": "Read Our Full Privacy Policy"
   }
 }

@@ -48,20 +48,17 @@ export function CommonCastResults({
   return (
     <div className="mt-8">
 
-      <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-        {t('title')}
-        {searchTerm.trim() ? (
-          <span className="ml-4 text-base font-normal text-gray-500 dark:text-gray-400">
-            {t('searchResults', { count: searchResults.length })}
-          </span>
-        ) : (
-          <span className="ml-4 text-base font-normal text-gray-500 dark:text-gray-400">
-            {t('searchResults', { count: results.length })}
-          </span>
-        )
-
-        }
-      </h2>
+      <div className="mb-4">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white text-center">
+          {t('title')}
+        </h2>
+        <p className="mt-1 text-gray-500 dark:text-gray-400 text-center">
+          {searchTerm.trim()
+            ? t('searchResults', { count: searchResults.length })
+            : t('searchResults', { count: results.length })
+          }
+        </p>
+      </div>
 
       {/* Search Component with Selection Options */}
       <CommonCastSearch

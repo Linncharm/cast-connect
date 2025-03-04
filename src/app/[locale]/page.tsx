@@ -13,6 +13,11 @@ import { useCastAnalysis } from '@/hooks/useCastAnalysis';
 import SearchResultsDropdown from '@/components/Search/SearchResultsDropdown';
 import { SearchHistory, TVShow } from '@/types';
 import '../globals.css';
+import { FeatureSection } from '@/components/Sections/Feature';
+import { HowToUseSection } from '@/components/Sections/HowToUse';
+import { WhyChooseSection } from '@/components/Sections/WhyChoose';
+import { FAQSection } from '@/components/Sections/FAQ';
+import { PrivacySection } from '@/components/Sections/Privacy';
 
 export default function Home() {
   const t = useTranslations('Analysis');
@@ -63,7 +68,7 @@ export default function Home() {
     const updatedHistory = [
       newHistoryItem,
       ...searchHistory.filter(item => item.id !== show.id), // 移除重复项
-    ].slice(0, 5); // 只保留最新的5条记录
+    ].slice(0, 8); // 只保留最新的8条记录
 
     setSearchHistory(updatedHistory);
     localStorage.setItem('tvSearchHistory', JSON.stringify(updatedHistory));
@@ -97,8 +102,8 @@ export default function Home() {
             />
           )}
         </div>
-        {/* 查询模式和分析按钮 - 在移动端水平排列 */}
-        <div className="flex justify-around gap-4 w-full md:w-auto">
+        {/* 查询模式和分析按钮 - 在移动上下排列 */}
+        <div className="flex flex-col justify-around sm:flex-row gap-4 w-full md:w-auto">
           <QueryModeSelect value={queryMode} onChange={handleQueryModeChange} />
           <button
             onClick={handleAnalysis}
@@ -117,7 +122,8 @@ export default function Home() {
       </div>
 
       {/* 已选剧集容器 */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-4 min-h-[200px] max-h-[400px] overflow-y-auto border border-gray-200 dark:border-gray-700  ">
+      <div
+        className="bg-white dark:bg-gray-800 rounded-lg p-4 min-h-[200px] max-h-[400px] overflow-y-auto border border-gray-200 dark:border-gray-700  ">
         <SelectedShowsList
           shows={selectedShows}
           onRemoveShow={handleRemoveShow}
@@ -131,10 +137,15 @@ export default function Home() {
         onActorExpand={handleActorExpand}
       />
       {/*Feature*/}
+      <FeatureSection />
       {/*How to Use*/}
+      <HowToUseSection />
       {/*Why Choose This*/}
+      <WhyChooseSection />
       {/*FAQ*/}
+      <FAQSection />
       {/*Privacy Protection*/}
+      <PrivacySection />
     </MainLayout>
   );
 }
