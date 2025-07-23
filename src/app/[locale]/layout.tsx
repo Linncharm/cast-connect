@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ReactNode } from 'react';
 import BaseLayout from '@/components/BaseLayout';
 import { routing } from '@/i18n/routing';
+import Head from 'next/head';
 
 type Props = {
   children: ReactNode;
@@ -35,5 +36,12 @@ export default async function LocaleLayout({ children, params }: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  return <BaseLayout locale={locale}>{children}</BaseLayout>;
+  return (
+    <div>
+      <Head>
+        <meta name="google-site-verification" content="HmZtFQKriNlDXKx7zaHF_ml3BZQ1YUgbskFfbKhRla0" />
+      </Head>
+      <BaseLayout locale={locale}>{children}</BaseLayout>
+    </div>
+  );
 }
