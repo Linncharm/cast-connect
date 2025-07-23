@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import BaseLayout from '@/components/BaseLayout';
 import { routing } from '@/i18n/routing';
 import Head from 'next/head';
+import { Metadata } from 'next';
 
 type Props = {
   children: ReactNode;
@@ -24,6 +25,12 @@ export function generateStaticParams() {
 //   };
 // }
 
+export const metadata: Metadata = {
+  other: {
+    'google-site-verification': 'HmZtFQKriNlDXKx7zaHF_ml3BZQ1YUgbskFfbKhRla0'
+  }
+};
+
 export default async function LocaleLayout({ children, params }: Props) {
   // Ensure that the incoming `locale` is valid
 
@@ -38,9 +45,6 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <div>
-      <Head>
-        <meta name="google-site-verification" content="HmZtFQKriNlDXKx7zaHF_ml3BZQ1YUgbskFfbKhRla0" />
-      </Head>
       <BaseLayout locale={locale}>{children}</BaseLayout>
     </div>
   );
