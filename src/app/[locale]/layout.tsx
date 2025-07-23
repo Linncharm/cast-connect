@@ -44,8 +44,6 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
 
   return (
-    <div>
       <BaseLayout locale={locale}>{children}</BaseLayout>
-    </div>
   );
 }
